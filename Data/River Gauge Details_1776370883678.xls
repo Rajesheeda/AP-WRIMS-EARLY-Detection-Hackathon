@@ -1,0 +1,2379 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:x='urn:schemas-microsoft-com:office:excel' xmlns='http://www.w3.org/TR/REC-html40'><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>River Gauge Details</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table><thead><tr><th colspan=7>River Gauge Details</th></tr><tr><th colspan=7> </th></tr></thead></table><table><thead><tr>				<th colspan="1" rowspan="1">River Name</th>				<th colspan="1" rowspan="1">Gauge Point </th>				<th colspan="1" rowspan="1">Source </th>				<th colspan="1" rowspan="1">Date and Time</th>				<th colspan="1" rowspan="1">Trend </th>				<th colspan="1" rowspan="1">Water Level (MSL) (m)  </th>				<th colspan="1" rowspan="1">Depth(m) </th></tr></thead>
+<tbody>
+			<tr>
+				<td>Krishna</td>
+				<td>Adavipalli Reservoir-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>476.88</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gundlakamma</td>
+				<td>Ainavolu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Sep 26, 2025, 12:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kunderu</td>
+				<td>Alladupalli_APRG</td>
+				<td>CWC</td>
+				<td>Apr 06, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>133.50</td>
+				<td>1.55</td>
+			</tr>
+			<tr>
+				<td>Mahendratanaya</td>
+				<td>Ananthapuram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>May 24, 2023, 1:00:00 AM</td>
+				<td>-</td>
+				<td>2.02</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Musi</td>
+				<td>Ananthavaram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Jan 09, 2024, 9:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Champavati</td>
+				<td>Andra Reservoir-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Sagileru</td>
+				<td>Annamayya_Project_APRG</td>
+				<td>CWC</td>
+				<td>Mar 13, 2025, 01:00:00 PM</td>
+				<td>Steady</td>
+				<td>0.00</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vogeruvaagu</td>
+				<td>Annavaram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Mar 23, 2026, 8:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Arani</td>
+				<td>Arnior_2-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Arani</td>
+				<td>Arnior-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>82.44</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gowthami</td>
+				<td>Atreyapuram (Gauthami)_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>2.20</td>
+				<td>0.70</td>
+			</tr>
+			<tr>
+				<td>Lower Krishna</td>
+				<td>Avanigadda_APRG</td>
+				<td>CWC</td>
+				<td>Nov 01, 2025, 12:00:00 AM</td>
+				<td>Rising</td>
+				<td>7.05</td>
+				<td>7.05</td>
+			</tr>
+			<tr>
+				<td>Sagileru</td>
+				<td>Badvel Tank-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>144.26</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Bahuda / Cheyyeru</td>
+				<td>Bahuda Dam_2-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Bahuda / Cheyyeru</td>
+				<td>Bahuda Dam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>612.57</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gal Eru</td>
+				<td>Banaka Cherla Regulator  Complex (BCR)-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Handri</td>
+				<td>Bastipadu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>316.00</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Tungabhadra</td>
+				<td>Bawapuram_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 01:00:00 PM</td>
+				<td>Steady</td>
+				<td>270.44</td>
+				<td>0.20</td>
+			</tr>
+			<tr>
+				<td>Bendi Gedda</td>
+				<td>Bendi AWLR Upgrade-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>3.79</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>B.M drain</td>
+				<td>BM drain at Pallikona-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>0.85</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Godavari</td>
+				<td>Bodasakkuru (Previously P.Gannavaram)-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>9.13</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vakkileru N</td>
+				<td>Brahmam Sagar Reservoir (SPVBR)-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Budameru</td>
+				<td>BUDAMERU @ Kothakovuluru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>0.00</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Budameru</td>
+				<td>Budameru at Velagaleru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 11, 2026, 7:00:00 AM</td>
+				<td>-</td>
+				<td>27.78</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Budimeru</td>
+				<td>BUDAMERU Drain@ Km:42.500-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>2.61</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Nagari</td>
+				<td>Buggaagraharam_APRG</td>
+				<td>CWC</td>
+				<td>Feb 28, 2026, 11:00:00 PM</td>
+				<td>Steady</td>
+				<td>92.52</td>
+				<td>2.52</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Buggavagu-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>139.40</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kannikala Vagu</td>
+				<td>Buggavanka Dam-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Champavathi</td>
+				<td>Champavathi @  Aguru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>105.25</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Champavathi</td>
+				<td>Champavathi @  Lingalavalasa-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>54.40</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Budameru</td>
+				<td>Chandraiah drain at Gudivada-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Tungabhadra Drain</td>
+				<td>Chavavaripalem-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>7.30</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Chennur_APRG</td>
+				<td>CWC</td>
+				<td>Apr 06, 2026, 08:00:00 AM</td>
+				<td>Rising</td>
+				<td>116.05</td>
+				<td>2.05</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Cherlopalli Reservoir-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>601.20</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pincha</td>
+				<td>Cheyyeru @ Bodumalluvaripalle-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gunjaneru</td>
+				<td>Cheyyeru @ Chitvel-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Oct 21, 2025, 12:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Cheyyeru</td>
+				<td>Cheyyeru @ Gundluru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>142.32</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Chinamusi</td>
+				<td>ChinamusiMarrichetlapalem-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Feb 20, 2026, 5:00:00 PM</td>
+				<td>-</td>
+				<td>39.49</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Sabri</td>
+				<td>Chinturu (Tallagudem/Kummuru)_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Rising</td>
+				<td>29.95</td>
+				<td>2.95</td>
+			</tr>
+			<tr>
+				<td>Chitravathi</td>
+				<td>Chitravathi @ Dampetla-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>306.34</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Chitravati</td>
+				<td>Chitravathi Balancing Reservoir (CBR)-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Chitravati</td>
+				<td>Chitravathi Balancing Reservoir-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 13, 2026, 7:00:00 PM</td>
+				<td>-</td>
+				<td>295.05</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vangaperu</td>
+				<td>Chitravathi@ Appalavandla Palli-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>450.57</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Maddileru</td>
+				<td>Chitravathi@ Nagireddy Palli-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Alleru Vagu</td>
+				<td>Combined stream of sangam vagu and jalleru vagau-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>81.94</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Boggeru</td>
+				<td>DIPURU_APRG</td>
+				<td>CWC</td>
+				<td>Apr 01, 2026, 08:00:00 AM</td>
+				<td>Rising</td>
+				<td>54.15</td>
+				<td>3.05</td>
+			</tr>
+			<tr>
+				<td>Alumeru Vagu</td>
+				<td>Donkarai_2-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Alumeru Vagu</td>
+				<td>Donkarai-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>315.37</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Godavari</td>
+				<td>Dowlaiswaram (State Govt Site)_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Falling</td>
+				<td>13.76</td>
+				<td>3.09</td>
+			</tr>
+			<tr>
+				<td>Godavari</td>
+				<td>Dowlaiswaram-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 11, 2026, 7:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>DR KLRS Pulichintala Dam_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 06:00:00 AM</td>
+				<td>Falling</td>
+				<td>50.91</td>
+				<td>0.00</td>
+			</tr>
+			<tr>
+				<td>Tammileru</td>
+				<td>East Tammileru@Eluru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Feb 20, 2026, 4:00:00 PM</td>
+				<td>-</td>
+				<td>11.51</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Errakalva</td>
+				<td>Errakalva/Yenamaduru Drain-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>23.26</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>E.T.B drain</td>
+				<td>ETB drain at Machavaram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>2.81</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Chitravathi</td>
+				<td>Gaddamvaripalli SR-III-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>248.36</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Swarnamuki</td>
+				<td>Gajula Mandyam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>105.63</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Handri</td>
+				<td>Gajuladinne Project-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>PeddaGedda</td>
+				<td>Gambhiramgedda-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Nov 16, 2022, 7:00:00 PM</td>
+				<td>-</td>
+				<td>4.07</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Sarada</td>
+				<td>Ganaparthi -sw</td>
+				<td>NHP_AWLR</td>
+				<td>Jun 05, 2025, 3:00:00 PM</td>
+				<td>-</td>
+				<td>4.65</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Godavari</td>
+				<td>GodavariRlyBridge(Rajahmundry)_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>13.51</td>
+				<td>13.51</td>
+			</tr>
+			<tr>
+				<td>Chitravathi</td>
+				<td>Goddumarri Anicut-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>259.49</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Avachari kona</td>
+				<td>Gogarbham-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>879.17</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Buradakalva</td>
+				<td>Gokavaram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Jan 05, 2026, 5:00:00 PM</td>
+				<td>-</td>
+				<td>58.57</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Chiravati(Plaeteru)</td>
+				<td>Gollapalli Reservoir-1-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 4:00:00 PM</td>
+				<td>-</td>
+				<td>525.67</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Handri</td>
+				<td>Gollapalli Reservoir-2-sw</td>
+				<td>NHP_AWS</td>
+				<td>Oct 10, 2025, 12:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gomukhi</td>
+				<td>Gomukhi Reservoir-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gonteru drain</td>
+				<td>Gonteru drain at Veeravasam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>2.40</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kannikala Vagu</td>
+				<td>Gorakallu  balancing reservior-sw</td>
+				<td>NHP_AWS</td>
+				<td>Feb 05, 2026, 6:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Gorakallu Balancing Reservoir-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>232.02</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gosthani</td>
+				<td>Gosthani @  Padmanabham-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 9:00:00 AM</td>
+				<td>-</td>
+				<td>13.04</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vamsadhara</td>
+				<td>Gotta_Barrage_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>33.58</td>
+				<td>0.00</td>
+			</tr>
+			<tr>
+				<td>Gautami Godavari</td>
+				<td>Gouthami Distributory River on Jonnada-Ravulapalem NH Bridge-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>0.59</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Sarada</td>
+				<td>Govada-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Mar 11, 2026, 9:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Upputeru or Manneru</td>
+				<td>Gudluru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>19.00</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gundlakamma</td>
+				<td>Gundlakamma at NSP canal Aqueduct near battepadu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>122.20</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gundlakamma</td>
+				<td>Gundlakamma Reservoir_2-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>23.87</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gundlakamma</td>
+				<td>Gundlakamma Reservoir-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 11, 2026, 7:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>East flowing rivers between Mahanadi and Pennar</td>
+				<td>Heeramandalam (Mallemadugu)</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>45.71</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Inampudi  drain</td>
+				<td>Inampudi drain at Yendakuduru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Feb 12, 2026, 3:00:00 PM</td>
+				<td>-</td>
+				<td>1.86</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Muniyeru</td>
+				<td>Ippalavagu at Koduru(Khabhampadu)-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 4:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Bahuda</td>
+				<td>Itchapuram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>6.20</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Jilleru Vagu</td>
+				<td>Jalleru @ Doramamidi-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pedderu</td>
+				<td>Jampana-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 4:00:00 PM</td>
+				<td>-</td>
+				<td>56.51</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Nagavali</td>
+				<td>Janjhavati_Rd.Bridge_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>115.88</td>
+				<td>5.88</td>
+			</tr>
+			<tr>
+				<td>Paleru</td>
+				<td>Jillellamudi-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Sep 19, 2025, 2:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kaundinya</td>
+				<td>Kalagatoor-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>673.90</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kalangi R</td>
+				<td>Kalangi Reseevoir-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kalangi R</td>
+				<td>Kalangi-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>60.96</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Sagileru</td>
+				<td>Kalasapadu_APRG</td>
+				<td>CWC</td>
+				<td>Apr 07, 2026, 08:00:00 AM</td>
+				<td>Falling</td>
+				<td>186.26</td>
+				<td>1.76</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Kalvapalli-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 4:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kalyani R</td>
+				<td>Kalyani Dam_2-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>280.12</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Swarnamukhi</td>
+				<td>Kalyani Dam-sw</td>
+				<td>NHP_AWS</td>
+				<td>Dec 30, 2025, 9:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Papagni</td>
+				<td>Kamalapuram_APRG</td>
+				<td>CWC</td>
+				<td>Apr 06, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>132.65</td>
+				<td>0.00</td>
+			</tr>
+			<tr>
+				<td>Kandleru</td>
+				<td>Kandaleru@Chellaturu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>79.93</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kandivalsa</td>
+				<td>Kandivalasa Gedda @  Valluru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>31.60</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gosthani</td>
+				<td>Kasipatnam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 21, 2025, 5:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Kattaleru at Tiruvuru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>May 20, 2025, 2:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Munneru</td>
+				<td>Keesara_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>28.71</td>
+				<td>1.21</td>
+			</tr>
+			<tr>
+				<td>Chandrayya Drain</td>
+				<td>Kodavakallu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>7.29</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Handri</td>
+				<td>Kodumuru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>356.67</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gunjana Vagu</td>
+				<td>Koduru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>182.40</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Godavari</td>
+				<td>Koida_APRG</td>
+				<td>CWC</td>
+				<td>Apr 08, 2026, 08:00:00 AM</td>
+				<td>Falling</td>
+				<td>24.03</td>
+				<td>11.03</td>
+			</tr>
+			<tr>
+				<td>Nagari R</td>
+				<td>Kollaguntla-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>163.35</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Konda Vagu</td>
+				<td>Konda Vagu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>48.50</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kotula Vagu</td>
+				<td>Kothula vagu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>49.16</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pedda</td>
+				<td>Kovvada Kaluva @ Pragadapalli-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>32.67</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kovvadakalava</td>
+				<td>Kovvada kalva reservoir-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 10, 2026, 4:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kovvadakalva Near Dommeru</td>
+				<td>Kovvadakalva Dommeru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>0.56</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pilleru Vagu</td>
+				<td>Krishna Basin In Guntur District @  Kubadpuram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pala Handri</td>
+				<td>Krishnagiri Reservoir-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 11, 2026, 7:00:00 AM</td>
+				<td>-</td>
+				<td>3.38</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Nagari R</td>
+				<td>Krishnapuram_2-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Nagari R</td>
+				<td>Krishnapuram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>196.25</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Godavari</td>
+				<td>Kunavaram_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>23.98</td>
+				<td>3.98</td>
+			</tr>
+			<tr>
+				<td>Kundereu</td>
+				<td>Kunderu @ Chapad-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Kunderu @ Sidhout-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>101.24</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Machkund</td>
+				<td>Kunturla FFS</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 01:00:00 PM</td>
+				<td>Falling</td>
+				<td>852.52</td>
+				<td>1.37</td>
+			</tr>
+			<tr>
+				<td>Tungabhadra</td>
+				<td>Kurnool_Town_APRG</td>
+				<td>CWC</td>
+				<td>Nov 01, 2025, 12:00:00 AM</td>
+				<td>Steady</td>
+				<td>270.02</td>
+				<td>4.02</td>
+			</tr>
+			<tr>
+				<td>Lazzabanda drain</td>
+				<td>Lazzabanda drain atPedana-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Feb 20, 2026, 3:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Munneru</td>
+				<td>Lingala (Muniyeru anicut at Polampalli-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>27.07</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Boggeru</td>
+				<td>Lower Pennar- @  Depuru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>51.12</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Sagileru</td>
+				<td>Lower sagileru Project-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gunderu</td>
+				<td>Machilipatnam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>1.18</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vamsadhara</td>
+				<td>Madapam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Jan 20, 2026, 5:00:00 PM</td>
+				<td>-</td>
+				<td>9.56</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Maddigadda Vagu</td>
+				<td>Maddigedda Project-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>195.68</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Nagavali</td>
+				<td>Madduvalasa_APRG</td>
+				<td>CWC</td>
+				<td>Oct 31, 2025, 08:00:00 AM</td>
+				<td>Rising</td>
+				<td>63.99</td>
+				<td>63.99</td>
+			</tr>
+			<tr>
+				<td>Bahuda / Cheyyeru</td>
+				<td>Mahal-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>469.94</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Avachari kona</td>
+				<td>Mallemadugu Reservoir-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>107.71</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Eduvampulagedda</td>
+				<td>Manapuram on Eduvampua gedda-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>92.84</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Tungabhadra</td>
+				<td>Mantralayam_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 01:00:00 PM</td>
+				<td>Falling</td>
+				<td>306.29</td>
+				<td>0.29</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Marala Reservoir-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>441.89</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Seethapalli Vagu</td>
+				<td>Maredumilli@Bongaralapadu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>0.37</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Tungabhadra</td>
+				<td>Melaganur_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 01:00:00 PM</td>
+				<td>Falling</td>
+				<td>335.74</td>
+				<td>3.24</td>
+			</tr>
+			<tr>
+				<td>Mahendrathanaya</td>
+				<td>Meliaputy_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Falling</td>
+				<td>48.80</td>
+				<td>3.80</td>
+			</tr>
+			<tr>
+				<td>Vakkileru N</td>
+				<td>Mid Pennar Reservoir (MPR)-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 6:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Middle Pennar Part-Ii @ Pamidi-1-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>295.27</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Puli Vanka</td>
+				<td>Middle Pennar Part-Ii @ Pogarur-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Middle Pennar Part-Ii @ Tadipatri-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>225.16</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Upputeru _Budimeru</td>
+				<td>Minor Drain @  Chinagollapalem-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>6.89</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Western Delta Main Canal</td>
+				<td>Minor Drain @  Nandivelugu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>9.81</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Padamata Vagu</td>
+				<td>Munneru - K12 @  Chintalapadu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Musi</td>
+				<td>Musi @  Kunchepalli-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Oct 09, 2025, 11:00:00 PM</td>
+				<td>-</td>
+				<td>68.83</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Seethapalli vagu</td>
+				<td>Musuri Malli-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>118.14</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Mylavaram Reservoir_2-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Mylavaram Reservoir-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>194.99</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Bonasi Vagu</td>
+				<td>Nagallapadu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>181.39</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kushastali</td>
+				<td>Nagari-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Jun 01, 2025, 9:00:00 PM</td>
+				<td>-</td>
+				<td>0.56</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Naguleru</td>
+				<td>Naguleru  at  Dachepalli-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 28, 2024, 11:00:00 AM</td>
+				<td>-</td>
+				<td>65.49</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Swarnamukhi</td>
+				<td>Naidupet_APRG</td>
+				<td>CWC</td>
+				<td>Apr 07, 2026, 08:00:00 AM</td>
+				<td>Falling</td>
+				<td>20.51</td>
+				<td>0.38</td>
+			</tr>
+			<tr>
+				<td>Cheyyeru</td>
+				<td>Nandalur_APRG</td>
+				<td>CWC</td>
+				<td>Apr 01, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>133.00</td>
+				<td>0.00</td>
+			</tr>
+			<tr>
+				<td>Sagileru</td>
+				<td>Nandipalli_APRG</td>
+				<td>CWC</td>
+				<td>Apr 06, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>96.58</td>
+				<td>1.58</td>
+			</tr>
+			<tr>
+				<td>Kunderu</td>
+				<td>Nandyal-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Poini</td>
+				<td>Narasingara_yainpet_APRG</td>
+				<td>CWC</td>
+				<td>Apr 06, 2026, 08:00:00 AM</td>
+				<td>Falling</td>
+				<td>265.85</td>
+				<td>2.40</td>
+			</tr>
+			<tr>
+				<td>Nagavali</td>
+				<td>Narayanpuram_Anicut_APRG</td>
+				<td>CWC</td>
+				<td>Oct 31, 2025, 08:00:00 AM</td>
+				<td>Falling</td>
+				<td>28.27</td>
+				<td>28.27</td>
+			</tr>
+			<tr>
+				<td>Kondaveetivaagu</td>
+				<td>Neerukonda-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>19.58</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Champavathi</td>
+				<td>Nellimarla-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Jul 07, 2025, 10:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Nellore Anicut-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>14.53</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Nellore Tank-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>13.69</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Nellore_CWC_APRG</td>
+				<td>CWC</td>
+				<td>Apr 06, 2026, 08:00:00 AM</td>
+				<td>Rising</td>
+				<td>8.33</td>
+				<td>1.10</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Nellore_Telemetry_APRG</td>
+				<td>CWC</td>
+				<td>Jun 17, 2025, 06:00:00 AM</td>
+				<td>Steady</td>
+				<td>14.29</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vamsadhara</td>
+				<td>Nivagam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Goddu Vanka</td>
+				<td>NTR Jalasayam_2-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Goddu Vanka</td>
+				<td>NTR Jalasayam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>293.79</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kundereu</td>
+				<td>NTR TGP Subsidary Reservoir No.1-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>215.14</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Upputeru _Budimeru</td>
+				<td>Other Drainage @  Kalipatnam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>3.18</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>PABR Dam-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 5:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Paidipalem Balancing Reservoir-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kaigalla Eru</td>
+				<td>Palar @ Kaigallu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>654.34</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Paleru</td>
+				<td>Paleru (A) @  Thakellapadu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 2:00:00 AM</td>
+				<td>-</td>
+				<td>80.15</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Paleru</td>
+				<td>Paleru_Bridge_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 01:00:00 PM</td>
+				<td>Steady</td>
+				<td>71.99</td>
+				<td>1.63</td>
+			</tr>
+			<tr>
+				<td>Palleru</td>
+				<td>Paleru-1 @  Budawada-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>100.88</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kalangi</td>
+				<td>Pallamala_APRG</td>
+				<td>CWC</td>
+				<td>Apr 01, 2026, 08:00:00 AM</td>
+				<td>Rising</td>
+				<td>96.31</td>
+				<td>2.96</td>
+			</tr>
+			<tr>
+				<td>Upputeru</td>
+				<td>Pambaleru at Guduru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 15, 2025, 7:00:00 AM</td>
+				<td>-</td>
+				<td>9.82</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pandameru</td>
+				<td>Pandameru@Raptadu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>357.04</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Mogamureru</td>
+				<td>Papagni @ Animela-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>182.27</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Papagni</td>
+				<td>Papagni @ Nandimandalam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Feb 07, 2026, 1:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Papagni</td>
+				<td>Papagni @ T.Sadum-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>551.67</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Papavinasa Kona</td>
+				<td>Papavinashanam_2-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Papavinasa Kona</td>
+				<td>Papavinashanam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>695.47</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gambiramgedda</td>
+				<td>Paradespalem-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Jan 18, 2026, 11:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Paruchuru vaagu</td>
+				<td>Paruchuruvagu at Karamchedu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 12, 2025, 4:00:00 AM</td>
+				<td>-</td>
+				<td>3.18</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Hindri(Kanakadinne Vanka)</td>
+				<td>Pathikonda Reservoir-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>448.93</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Thandava</td>
+				<td>Payakaraopet-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Jul 21, 2025, 12:00:00 AM</td>
+				<td>-</td>
+				<td>12.92</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Seetapalli vaagu</td>
+				<td>Pedageddada-sw</td>
+				<td>NHP_AWLR</td>
+				<td>May 24, 2023, 1:00:00 AM</td>
+				<td>-</td>
+				<td>0.38</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pedda Eru</td>
+				<td>Pedderu_2-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pedda Eru</td>
+				<td>Pedderu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>480.23</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Pendekallu Reservoir (Upper Pennar)-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>254.92</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Pennar Kumudwathi Project (Anicut)-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>202.96</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pillaperu</td>
+				<td>Pillaperu Anicut at Narravada.-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>92.53</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vegavathi</td>
+				<td>Pinapenki-sw2-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Sep 22, 2025, 4:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pincha</td>
+				<td>Pincha Project-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>302.17</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Munneru</td>
+				<td>Polampalli_APRG</td>
+				<td>CWC</td>
+				<td>Oct 31, 2025, 11:00:00 PM</td>
+				<td>Falling</td>
+				<td>68.12</td>
+				<td>2.86</td>
+			</tr>
+			<tr>
+				<td>-</td>
+				<td>Polavaram Project</td>
+				<td>CWC</td>
+				<td>Oct 26, 2025, 12:00:00 AM</td>
+				<td>Falling</td>
+				<td>18.60</td>
+				<td>18.60</td>
+			</tr>
+			<tr>
+				<td>Godavari</td>
+				<td>Polavaram_site_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Falling</td>
+				<td>13.70</td>
+				<td>2.80</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Prakasam Barrage-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 11, 2026, 7:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Prakasam_Barrage_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 01:00:00 PM</td>
+				<td>Steady</td>
+				<td>17.39</td>
+				<td>3.66</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Pulichinthala Project-sw</td>
+				<td>NHP_AWS</td>
+				<td>Mar 25, 2026, 1:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pull Kalva</td>
+				<td>Pulikauva near Eswarawaka-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>9.71</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Budameru</td>
+				<td>Pulivagu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 11, 2025, 11:00:00 PM</td>
+				<td>-</td>
+				<td>39.99</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pillaperu</td>
+				<td>Pyderu Anicut at Kammapalem-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Nov 01, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>13.91</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Elikeru R</td>
+				<td>Rallapadu Reservoir-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>39.41</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>vottigedda</td>
+				<td>Ramabhadrapuram-Salur Road-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>145.04</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Cheyyeru</td>
+				<td>RAYACHOTI_APRG</td>
+				<td>CWC</td>
+				<td>Apr 01, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>96.96</td>
+				<td>2.11</td>
+			</tr>
+			<tr>
+				<td>Kalleru R</td>
+				<td>Saidapuramu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Nov 17, 2025, 6:00:00 PM</td>
+				<td>-</td>
+				<td>20.13</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Swarnamukhi</td>
+				<td>Salur Mamidipalli Road-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>163.31</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vegavathi</td>
+				<td>Salur-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Sangam Barrage (Paleru Bitragunta Anicut)-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>33.84</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Nagavali</td>
+				<td>Sankhili_Rd_Bridge_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>40.80</td>
+				<td>2.80</td>
+			</tr>
+			<tr>
+				<td>Sarada</td>
+				<td>Sarada- @  Sambuvani Palem-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>97.37</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Sarvaraja Sagar-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>193.47</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Mahendratanaya</td>
+				<td>Seedhi Village-Mahendratanaya River-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>44.45</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Guntawada</td>
+				<td>Sileru (Guntawada) Reservoir-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>415.35</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Chitravathi</td>
+				<td>Singavaram_APRG</td>
+				<td>CWC</td>
+				<td>Apr 06, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>254.00</td>
+				<td>0.00</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Somasila Reservoir-sw</td>
+				<td>NHP_AWS</td>
+				<td>Jan 21, 2026, 8:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Somasila_Dam_APRG</td>
+				<td>CWC</td>
+				<td>Apr 08, 2026, 06:00:00 AM</td>
+				<td>Falling</td>
+				<td>97.92</td>
+				<td>0.00</td>
+			</tr>
+			<tr>
+				<td>Yeleru</td>
+				<td>Somavaram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 11, 2026, 7:00:00 AM</td>
+				<td>-</td>
+				<td>33.86</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pedderu</td>
+				<td>Sri Tenneti Viswanatham Pedderu Reservoir-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 10, 2026, 3:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Nagavali</td>
+				<td>Srikakulam_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 08:00:00 AM</td>
+				<td>Rising</td>
+				<td>7.41</td>
+				<td>0.76</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Srinivasapuram Reservoir (HNSS)-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>413.30</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Srisailam_Reservoir_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 01:00:00 PM</td>
+				<td>Steady</td>
+				<td>250.58</td>
+				<td>0.00</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Subsidiary Reservoir - II-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>217.32</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kalingi</td>
+				<td>Sullurpet_APRG</td>
+				<td>CWC</td>
+				<td>Apr 01, 2026, 06:00:00 PM</td>
+				<td>Steady</td>
+				<td>0.44</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Tungabhadra</td>
+				<td>Sunkesula Barrage-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Tungabhadra</td>
+				<td>Sunkesula_Barrage_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 06:00:00 AM</td>
+				<td>Steady</td>
+				<td>292.00</td>
+				<td>0.00</td>
+			</tr>
+			<tr>
+				<td>Swarnamukhi</td>
+				<td>Swarnamukhi @ Mallavaram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>174.63</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Swarnamukhi</td>
+				<td>Swarnamukhi @ Subbanaidu Kandriga-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>70.31</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Tadipatri_APRG</td>
+				<td>CWC</td>
+				<td>Apr 06, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>225.22</td>
+				<td>1.22</td>
+			</tr>
+			<tr>
+				<td>Gosthani</td>
+				<td>Tadipudi Reservoir-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 10, 2026, 6:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Gosthani</td>
+				<td>Tagarapuvalasa-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Feb 20, 2026, 1:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Tammileru</td>
+				<td>Tammileru @  Gullapudi-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Tandava</td>
+				<td>Tandava Reservoir-sw</td>
+				<td>NHP_AWS</td>
+				<td>Jun 23, 2025, 6:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Nalla Vagu</td>
+				<td>Tatapudi-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>0.00</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>TB DAM(Subsidiary Reservoir - I)-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>484.56</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Thimmapuram SR-I-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>220.38</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Nagavali</td>
+				<td>Thotapalli Barrage-sw</td>
+				<td>NHP_AWS</td>
+				<td>May 27, 2025, 2:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Nagavali</td>
+				<td>Thottapalli R/s (APSDPSData)_APRG</td>
+				<td>CWC</td>
+				<td>Oct 31, 2025, 08:00:00 AM</td>
+				<td>Falling</td>
+				<td>103.70</td>
+				<td>0.00</td>
+			</tr>
+			<tr>
+				<td>Handri</td>
+				<td>Tungabadra - K8@Velamakuru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>409.10</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Manneru</td>
+				<td>U/s of Mopadu reservoir at NH565 bridge-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>0.00</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Manneru</td>
+				<td>U/S of Rallapadu Resorvoir (Isukadamarla) - kambaladinne-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 3:00:00 PM</td>
+				<td>-</td>
+				<td>0.01</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Upper Pennar @ Sasanakota-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>613.25</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Upper Pennar @UPP Dam_2-sw</td>
+				<td>NHP_AWS</td>
+				<td>Apr 16, 2026, 9:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Pennar</td>
+				<td>Upper pennar @UPP dam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Feb 12, 2026, 4:00:00 PM</td>
+				<td>-</td>
+				<td>525.48</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Sagileru</td>
+				<td>Upper Sagileru-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>196.85</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Upputeru _Budimeru</td>
+				<td>uppeteru @ Akividu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>1.06</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Kandleru R</td>
+				<td>Upputeru @  Degapudi-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Satyasaiganga Canal (Tgp)</td>
+				<td>Upputeru @  Kommipadu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Mar 27, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>54.72</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Upputeru or Manneru</td>
+				<td>Upputeru Anicut near Kondapuram-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>35.15</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Vamikond Sagar Reservoir-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>198.49</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vartha</td>
+				<td>Varaha near Gottivada-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 10:00:00 PM</td>
+				<td>-</td>
+				<td>28.00</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Sarpa</td>
+				<td>Varaha- @  Kondala Agraharam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>34.65</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vasishta Godavari</td>
+				<td>Vasista Distributary on River Godavari Eethakota- Siddhantham NH Bridge-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 16, 2026, 11:00:00 PM</td>
+				<td>-</td>
+				<td>1.38</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Manner</td>
+				<td>Veera Raghavani Kota Anicut-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>19.84</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vottigedda</td>
+				<td>Veeragattam-sw</td>
+				<td>NHP_AWLR</td>
+				<td>May 09, 2025, 12:00:00 PM</td>
+				<td>-</td>
+				<td>65.36</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Papagni</td>
+				<td>Veligallu Project-sw</td>
+				<td>NHP_AWS</td>
+				<td>Feb 20, 2026, 4:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Swarnamukhi</td>
+				<td>Verupaksha_puram_APRG</td>
+				<td>CWC</td>
+				<td>Apr 06, 2026, 08:00:00 AM</td>
+				<td>Steady</td>
+				<td>54.80</td>
+				<td>2.50</td>
+			</tr>
+			<tr>
+				<td>Krishna</td>
+				<td>Vijayawada_APRG</td>
+				<td>CWC</td>
+				<td>Apr 09, 2026, 01:00:00 PM</td>
+				<td>Steady</td>
+				<td>7.99</td>
+				<td>0.00</td>
+			</tr>
+			<tr>
+				<td>Pedannadipadu Branch Canal</td>
+				<td>Vogeru Vagu @  Muppalla-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 17, 2026, 12:00:00 AM</td>
+				<td>-</td>
+				<td>90.47</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Tammileru</td>
+				<td>West Tammileru  at Eluru-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Mar 07, 2026, 9:00:00 AM</td>
+				<td>-</td>
+				<td>9.05</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Yeleru</td>
+				<td>Yeleswaram-sw</td>
+				<td>NHP_AWS</td>
+				<td>Nov 11, 2025, 3:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Chitravathi</td>
+				<td>Yellanur SR-II-sw</td>
+				<td>APWRD_AWLR</td>
+				<td>Apr 17, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>236.77</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Yenamaduru drain</td>
+				<td>YenamadurruDrain at Gollalakoderu-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 3:00:00 PM</td>
+				<td>-</td>
+				<td>2.39</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Vasishta Godavari</td>
+				<td>Yerrakalva @  Chinchinada-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Dec 31, 2025, 11:00:00 AM</td>
+				<td>-</td>
+				<td>8.47</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Baineru Vagu</td>
+				<td>Yerrakalva @  Jangareddigudem-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>71.06</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Errakalva</td>
+				<td>Yerrakalva near Anantapalli-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 14, 2026, 1:00:00 AM</td>
+				<td>-</td>
+				<td>30.63</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<td>Varaha</td>
+				<td>Yetikoppaka-sw</td>
+				<td>NHP_AWLR</td>
+				<td>Apr 10, 2026, 4:00:00 PM</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+</tbody></table></body></html>

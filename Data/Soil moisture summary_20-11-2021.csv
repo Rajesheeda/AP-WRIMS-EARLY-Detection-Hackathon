@@ -1,0 +1,30 @@
+Soil moisture summary
+
+DISTRICT,Available Soil Moisture(T.M.C) till 5 cms depth,Available Soil Moisture(%) till 5 cms depth,Available Soil Moisture(T.M.C) till 30 cms depth,Available Soil Moisture(%) till 30 cms depth,Available Soil Moisture(T.M.C) till 100 cms depth,Available Soil Moisture(%) till 100 cms depth,Available Soil Moisture(T.M.C) till 150 cms depth,Available Soil Moisture(%) till 150 cms depth
+Srikakulam,0.78,97.96,6.14,99.5,21.17,99.79,31.92,99.84
+Vizianagaram,0.59,90.1,5.17,97.56,18.05,98.97,27.27,99.25
+Parvathipuram Manyam,0.53,77.01,4.4,94.1,15.17,96.84,22.84,97.22
+Alluri Sitharama Raju,2.03,92.91,14.22,84.24,52.13,90.77,80.28,93.09
+Visakhapatnam,0.17,99.54,1.3,98.6,4.45,98.28,6.7,98.19
+Anakapalli,0.73,99.21,4.65,99.03,15.69,99.37,23.59,99.48
+Kakinada,0.61,100,4.13,99.29,13.99,99.2,21.03,99.19
+Konaseema,0.38,100,3.05,100,10.54,100,15.89,100
+East Godavari,0.43,100,3.61,99.6,12.48,99.3,18.8,99.21
+West Godavari,0.35,100,2.92,99.36,10.11,99.66,15.24,99.78
+Eluru,1.02,88.47,7.64,88.48,27.09,92.5,41.24,93.79
+Krishna,0.64,99.09,5.14,98.06,17.93,98.93,27.12,99.23
+NTR,0.45,85.34,2.25,53.92,10.72,75.11,17.76,82.61
+Guntur,0.4,99.56,2.92,89.81,10.54,93.62,16.14,95.02
+Bapatla,0.63,100,5.49,99.59,18.83,98.3,28.29,97.89
+Palnadu,1.37,98.78,8.51,85.69,29.03,87.56,43.85,88.44
+Prakasam,2.59,98.27,18.9,95.38,57.97,89.2,84,87.03
+Sri Potti Sriramulu Nellore,1.77,99.33,14.62,99.87,50.42,99.84,75.94,99.81
+Kurnool,1.24,98.9,7.78,71.21,28.22,73.33,43.43,74.49
+Nandyal,1.68,95.6,9.35,71.12,33.48,74.77,51.48,76.45
+Ananthapuramu,1.68,98.02,11.85,97.85,39.07,95.91,58.16,95.27
+Sri Sathya Sai,1.64,99.86,11.38,99.97,37.76,99.39,56.35,99.2
+Y.S.R Kadapa,1.76,96.96,13.14,98.69,43.84,97.29,65.44,96.79
+Annamayya,1.77,95.61,11.97,99.27,39.08,99.78,58.03,99.85
+Chittoor,1.3,100,9.55,100,31.97,99.99,47.79,99.99
+Tirupati,1.59,98.95,11.59,99.83,39.22,99.95,58.84,99.96
+Total,28.12,96.65,201.68,92.47,688.96,93.38,1037.4,93.73

@@ -1,0 +1,29 @@
+APT_Table
+
+APT Name,District,Mandal,Geology,Static Water Level (mgbl),Discharge (lps)
+Buddulavarigudem_APTS,Eluru,Buttayagudem,Khondalites,6.1,2.5
+Cherlopalli_APTS,Sri Potti Sriramulu Nellore,Rapur,Granite Schist,2.18,1.8
+Dharmavaram_APTS,Srikakulam,Etcherla,River Alluviam,14.2,9.41
+Eetamukkala_APTS,Prakasam,Kotha Patnam,Coastal Alluvium,1.97,2.22
+Elakolanu_APTS,East Godavari,Rangampeta,Rajamundry Sandstone,115.13,14
+Goljam_APTS,Vizianagaram,Lakkavarapukota,Granite Gniess,7.05,1.6
+IGCRL_APTS,Y.S.R Kadapa,Pulivendla,Tadipatri shale/ sills,6.63,2.33
+IIT Tirupati_APTS,Tirupati,Yerpedu,Granite Gniess,3.67,2.32
+Kadiri_APTS,Sri Sathya Sai,Kadiri,Granite,8.07,2.44
+Karlam_APTS,Vizianagaram,Cheepurupalle,Quartzites,12.35,2.08
+Kodumuru_APTS,Kurnool,Kodumur,Granite Gniess,3.02,0.17
+Kollipara_APTS,Guntur,Kollipara,Alluvium,4.72,11.18
+Kuchipudi_APTS,Krishna,Movva,Alluvium,1.67,8.38
+Maddipatla Palli_APTS,Chittoor,Irala,Granite Gniess,17.19,2
+Maruvada_APTS,Srikakulam,Ranastalam,Quartzite,21.95,3.94
+Muramanda_APTS,East Godavari,Kadiam,River Alluviam,5.25,11.32
+Narasapuram_APTS,West Godavari,Narasapuram,Alluvium,33.82,1.06
+Pandrangi_APTS,Visakhapatnam,Padmanabham,River Alluviam,9.72,0.56
+Ramudupalem_APTS,Sri Potti Sriramulu Nellore,Indukurpet,Alluvium,19.61,6.13
+Rekulakunta_APTS,Ananthapuramu,Anantapur_urban,Granite,9.62,6
+Rentapalla_APTS,Palnadu,Sattenapalle,Granite Gniess,4.74,0.99
+Sureddipalem_APTS,Anakapalli,K.kotapadu,Khondalites,6.69,2.06
+Tallapaka_APTS,Y.S.R Kadapa,Rajampet,Dolamites,1.07,8.08
+Veerabadrapuram_APTS,Markapuram,Ardhaveedu,Cumbhum shales,14.49,7.77
+Velpunuru_APTS,Nandyal,Velgode,Shale,1.99,9.7
+Venkataramannagudem_APTS,West Godavari,Tadepalligudem,Rajamundry Sandstone,46.85,3.6
