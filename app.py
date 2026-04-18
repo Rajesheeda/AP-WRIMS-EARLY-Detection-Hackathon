@@ -1428,122 +1428,437 @@ def tab_cascade():
     level = risk.get("level", "LOW")
     score = risk.get("score", 0)
 
-    # Coordinates
-    pos = {
-        "Pennar River": (5, 0),
-        "Mylavaram": (5, 1),
-        "Annamayya (Under reconstruction)": (5, 2),
-        "Cheyyeru River": (5, 3),
-        "Pincha Project": (3, 4),
-        "Bahuda River": (3, 5),
-        "Gandikota": (7, 3),
-        "Veligallu": (7, 4)
+    # ── Cheyyeru cascade network (topology: Pincha+Bahuda → Rayavaram → Cheyyeru
+    #     → Annamayya → villages → Attirala/Rajampet → Nandalur → Penna → Somasila)
+    #     Flow volumes Nov 17–19 match APWRIMS Reservoir Summary CSVs in /Data.
+    BG = "#0A1628"
+    C_AMBER, C_YELLOW, C_ORANGE = "#F59E0B", "#EAB308", "#EA580C"
+    C_RED, C_DRED, C_BLUE = "#DC2626", "#7F1D1D", "#3B82F6"
+    C_GREEN, C_GREY, C_BLACK = "#15803D", "#475569", "#111827"
+
+    p_in   = data.get("pincha_inflow", 0)
+    p_out  = data.get("pincha_outflow", 0)
+    a_in   = data.get("annamayya_inflow", 0)
+    a_out  = data.get("annamayya_outflow", 0)
+    s_dead = data.get("annamayya_sensor_dead", False)
+
+    # Bahuda: no APWRIMS row — illustrative tributary scale (Nov 19 aligns with flood scale)
+    _bah_est = {"Nov17": 650, "Nov18": 1100, "Nov19": 42000, "Current": 12}
+    bah_flow = _bah_est.get(dk, 500)
+    combined = p_in + bah_flow
+
+    # key → (cx, cy, half_w, half_h); Annamayya largest; villages medium-large
+    G = {
+        "Pincha":      (3.0,  10.85, 1.42, 0.40),
+        "Bahuda":      (11.0, 10.85, 1.42, 0.40),
+        "Rayavaram":   (7.0,   8.95, 1.48, 0.36),
+        "Seshachalam": (11.85,  8.25, 1.02, 0.32),
+        "Cheyyeru":    (7.0,   7.35, 1.32, 0.34),
+        "Annamayya":   (7.0,   5.15, 2.38, 0.90),
+        "Villages":    (7.0,   3.25, 1.68, 0.52),
+        "Attirala":    (7.0,   1.70, 1.52, 0.44),
+        "Nandalur":    (7.0,   0.15, 1.42, 0.40),
+        "Penna":       (7.0,  -1.35, 1.65, 0.42),
+        "Somasila":    (7.0,  -2.85, 1.72, 0.46),
     }
-    
-    edges = [
-        ("Bahuda River", "Pincha Project"),
-        ("Pincha Project", "Cheyyeru River"),
-        ("Cheyyeru River", "Annamayya (Under reconstruction)"),
-        ("Annamayya (Under reconstruction)", "Mylavaram"),
-        ("Mylavaram", "Pennar River"),
-        ("Gandikota", "Pennar River"),
-        ("Veligallu", "Pennar River")
-    ]
-    
-    def get_color(node, selected_dk):
-        if selected_dk == "Current":
-            if "Pincha" in node: return "#D97706"
-            if "Annamayya" in node: return "#DC2626"
-            if "River" in node: return "#3B82F6"
-            return "#94A3B8"
-        elif selected_dk == "Nov18":
-            if "Pincha" in node: return "#D97706"
-            if "Annamayya" in node: return "#DC2626"
-            if "Cheyyeru" in node: return "#EA580C"
-            if "Gandikota" in node: return "#DC2626"
-            if "River" in node: return "#3B82F6"
-            return "#EA580C"
-        elif selected_dk == "Nov19":
-            if "Annamayya" in node: return "#000000"
-            if "River" in node: return "#3B82F6"
-            if "Pincha" in node: return "#DC2626"
-            if "Cheyyeru" in node: return "#DC2626"
-            return "#DC2626"
-        else: # Nov17
-            if "River" in node: return "#3B82F6"
-            return "#16A34A"
-            
-    def get_hover(node, selected_dk):
-        if "Annamayya" in node:
-            stt = "Status: Under reconstruction<br>Risk: MAXIMUM (offline)" if selected_dk == 'Current' else f"In/Out: {data.get('annamayya_inflow',0)} / {data.get('annamayya_outflow',0)}"
-            return f"<b>{node}</b><br>{stt}"
-        elif "Pincha" in node:
-            return f"<b>{node}</b><br>Inflow: {data.get('pincha_inflow',0)}<br>Outflow: {data.get('pincha_outflow',0)}"
-        return f"<b>{node}</b>"
-            
-    edge_x, edge_y = [], []
-    for u, v in edges:
-        x0, y0 = pos[u]
-        x1, y1 = pos[v]
-        edge_x.extend([x0, x1, None])
-        edge_y.extend([y0, y1, None])
-        
-    node_x, node_y, node_colors, node_text, node_sizes = [], [], [], [], []
-    for node, (x, y) in pos.items():
-        node_x.append(x)
-        node_y.append(y)
-        node_colors.append(get_color(node, dk))
-        size = 30
-        if "Annamayya" in node: size = 45
-        elif "Gandikota" in node: size = 50
-        elif "Mylavaram" in node: size = 35
-        elif "Pincha" in node: size = 25
-        elif "Veligallu" in node: size = 25
-        node_sizes.append(size * 1.5)
-        node_text.append(get_hover(node, dk))
+
+    def port(key, side):
+        cx, cy, hw, hh = G[key]
+        return {"bottom": (cx, cy - hh), "top": (cx, cy + hh),
+                "left": (cx - hw, cy), "right": (cx + hw, cy)}[side]
+
+    def n_fill(key):
+        if dk == "Nov17":
+            pal = {
+                "Pincha": C_AMBER, "Bahuda": C_YELLOW, "Rayavaram": C_YELLOW,
+                "Seshachalam": C_GREEN, "Cheyyeru": C_GREEN, "Annamayya": C_AMBER,
+                "Villages": C_GREEN, "Attirala": C_GREEN, "Nandalur": C_GREEN,
+                "Penna": C_GREEN, "Somasila": C_GREEN,
+            }
+            return pal[key]
+        if dk == "Nov18":
+            pal = {
+                "Pincha": C_ORANGE, "Bahuda": C_ORANGE, "Rayavaram": C_RED,
+                "Seshachalam": C_RED, "Cheyyeru": C_ORANGE, "Annamayya": C_RED,
+                "Villages": C_RED, "Attirala": C_ORANGE, "Nandalur": C_ORANGE,
+                "Penna": C_BLUE, "Somasila": C_GREEN,
+            }
+            return pal[key]
+        if dk == "Nov19":
+            pal = {
+                "Pincha": C_DRED, "Bahuda": C_DRED, "Rayavaram": C_RED,
+                "Seshachalam": C_RED, "Cheyyeru": C_RED, "Annamayya": C_BLACK,
+                "Villages": C_BLACK, "Attirala": C_RED, "Nandalur": C_RED,
+                "Penna": C_ORANGE, "Somasila": C_ORANGE,
+            }
+            return pal[key]
+        pal = {
+            "Pincha": C_AMBER, "Bahuda": C_BLUE, "Rayavaram": C_GREEN,
+            "Seshachalam": C_GREEN, "Cheyyeru": C_BLUE, "Annamayya": C_GREY,
+            "Villages": C_GREEN, "Attirala": C_GREEN, "Nandalur": C_GREEN,
+            "Penna": C_BLUE, "Somasila": C_BLUE,
+        }
+        return pal[key]
+
+    def n_border(key):
+        fill = n_fill(key)
+        if dk == "Nov18" and key == "Annamayya":
+            return "#FCA5A5"
+        if dk == "Nov19" and key == "Annamayya":
+            return "#EF4444"
+        if key == "Annamayya":
+            return "#E2E8F0" if dk == "Current" else fill
+        return "#F8FAFC"
+
+    def n_label(key):
+        if key == "Pincha":
+            if dk == "Nov17":
+                return (f"<b>PINCHA RIVER</b><br>Pincha Dam · upstream<br>"
+                        f"<b>{p_in:,.0f} cs</b> inflow (APWRIMS)")
+            if dk == "Nov18":
+                return (f"<b>PINCHA RIVER</b><br>Pincha Dam · upstream<br>"
+                        f"<b>{p_in:,.0f} cs</b> · <b>+16.6%</b> surge")
+            if dk == "Nov19":
+                return (f"<b>PINCHA RIVER</b><br>Pincha Dam<br>"
+                        f"<b>{p_in:,.0f} cs</b> catastrophic")
+            return (f"<b>PINCHA RIVER</b><br>Pincha Dam<br>"
+                    f"in <b>{p_in:,.0f}</b> · out <b>{p_out:,.0f}</b> cs")
+        if key == "Bahuda":
+            if dk == "Nov19":
+                return (f"<b>BAHUDA RIVER</b><br>Primary headstream<br>"
+                        f"~<b>{bah_flow:,.0f}</b> cs flood stage")
+            return (f"<b>BAHUDA RIVER</b><br>Primary headstream<br>"
+                    f"~<b>{bah_flow:,.0f}</b> cs (est.)")
+        if key == "Rayavaram":
+            if dk == "Nov18":
+                return (f"<b>RAYAVARAM CONFLUENCE</b><br>Pincha + Bahuda merge<br>"
+                        f"Cheyyeru formed · ~<b>{combined:,.0f}</b> cs")
+            if dk == "Nov19":
+                return (f"<b>RAYAVARAM CONFLUENCE</b><br>Pincha + Bahuda<br>"
+                        f"~<b>{combined:,.0f}</b> cs")
+            return ("<b>RAYAVARAM CONFLUENCE</b><br>Pincha + Bahuda merge<br>"
+                    "→ Cheyyeru River formed")
+        if key == "Seshachalam":
+            if dk == "Nov18":
+                return ("<b>SESHACHALAM HILLS</b><br>Flash flood runoff<br>"
+                        "<b>~17 cm</b> / 2 days (extreme)")
+            return ("<b>SESHACHALAM HILLS</b><br>Flash flood runoff<br>"
+                    "into Cheyyeru catchment")
+        if key == "Cheyyeru":
+            if dk == "Nov18":
+                return ("<b>CHEYYERU RIVER</b><br>Main channel<br>"
+                        "Surge combining")
+            if dk == "Nov19":
+                return ("<b>CHEYYERU RIVER</b><br>Main channel<br>"
+                        "Breach floodwave")
+            return ("<b>CHEYYERU RIVER</b><br>Main channel<br>"
+                    "toward Penna basin")
+        if key == "Annamayya":
+            if dk == "Nov19":
+                return ("<b>ANNAMAYYA DAM ⚠</b><br>Cheyyeru · Rajampet<br>"
+                        "Capacity <b>2.24 TMC</b><br>"
+                        "<b>BREACHED</b> · 19 Nov 2021<br>"
+                        "APWRIMS: gauge offline")
+            if dk == "Current":
+                return ("<b>ANNAMAYYA DAM ⚠</b><br>Cheyyeru · Rajampet<br>"
+                        "Capacity <b>2.24 TMC</b><br>"
+                        "<b>Under reconstruction</b><br>"
+                        "<b>₹775 Crore</b> project")
+            if dk == "Nov18":
+                return (f"<b>ANNAMAYYA DAM ⚠</b><br>Cheyyeru · Rajampet<br>"
+                        f"Capacity <b>2.24 TMC</b><br>"
+                        f"↑ <b>{a_in:,.0f}</b> · ↓ <b>{a_out:,.0f}</b> cs<br>"
+                        f"<b>Outflow &gt; inflow — CRITICAL</b>")
+            return (f"<b>ANNAMAYYA DAM ⚠</b><br>Cheyyeru · Rajampet<br>"
+                    f"Capacity <b>2.24 TMC</b><br>"
+                    f"↑ <b>{a_in:,.0f}</b> · ↓ <b>{a_out:,.0f}</b> cs")
+        if key == "Villages":
+            if dk == "Nov18":
+                return ("<b>DOWNSTREAM VILLAGES</b><br>"
+                        "Pulapathur (worst hit)<br>"
+                        "Mandapalli · Togurupeta · Gundlur<br>"
+                        "<b>EVACUATE IMMEDIATELY</b>")
+            if dk == "Nov19":
+                return ("<b>DOWNSTREAM VILLAGES</b><br>"
+                        "<b>SUBMERGED</b><br>"
+                        "Nov 2021: <b>33–39 deaths</b><br>"
+                        "Pulapathur · Mandapalli · …")
+            if dk == "Current":
+                return ("<b>DOWNSTREAM VILLAGES</b><br>"
+                        "Pulapathur · Mandapalli<br>"
+                        "Togurupeta · Gundlur<br>"
+                        "No immediate threat")
+            return ("<b>DOWNSTREAM VILLAGES</b><br>"
+                    "Pulapathur · Mandapalli<br>"
+                    "Togurupeta · Gundlur")
+        if key == "Attirala":
+            if dk == "Nov18":
+                return ("<b>ATTIRALA + RAJAMPET</b><br>"
+                        "Parasurama Temple town<br>"
+                        "Major town on Cheyyeru<br>"
+                        "<b>At risk</b>")
+            if dk == "Nov19":
+                return ("<b>ATTIRALA + RAJAMPET</b><br>"
+                        "Parasurama Temple town<br>"
+                        "<b>Flooded</b>")
+            return ("<b>ATTIRALA + RAJAMPET</b><br>"
+                    "Parasurama Temple town<br>"
+                    "Major town on Cheyyeru<br>"
+                    "Drinking water dependent")
+        if key == "Nandalur":
+            if dk == "Nov18":
+                return ("<b>NANDALUR</b><br>River gauge <b>133.00 m</b><br>"
+                        "Percolation tanks zone<br>"
+                        "<b>Flood approaching</b>")
+            if dk == "Nov19":
+                return ("<b>NANDALUR</b><br>River gauge <b>133.00 m</b><br>"
+                        "<b>Flooded</b>")
+            return ("<b>NANDALUR</b><br>River gauge <b>133.00 m</b><br>"
+                    "Percolation tanks zone")
+        if key == "Penna":
+            if dk == "Nov18":
+                return ("<b>PENNA RIVER CONFLUENCE</b><br>"
+                        "Gundlamada near Boyanapalli<br>"
+                        "Sidhout region<br>"
+                        "Cheyyeru joins Penna · <b>receiving</b>")
+            if dk == "Nov19":
+                return ("<b>PENNA RIVER CONFLUENCE</b><br>"
+                        "Gundlamada · Sidhout<br>"
+                        "<b>512,303 cs</b> surge (Nov 19)")
+            return ("<b>PENNA RIVER CONFLUENCE</b><br>"
+                    "Gundlamada near Boyanapalli<br>"
+                    "Sidhout · Cheyyeru joins Penna")
+        if key == "Somasila":
+            if dk == "Nov19":
+                return ("<b>SOMASILA DAM → BAY OF BENGAL</b><br>"
+                        "Nov 19: received <b>512,303 cs</b>")
+            if dk == "Current":
+                return ("<b>SOMASILA DAM → BAY OF BENGAL</b><br>"
+                        "Dry season · lower flows")
+            return ("<b>SOMASILA DAM → BAY OF BENGAL</b><br>"
+                    "Downstream Penna system")
+        return f"<b>{key}</b>"
+
+    _ses_flow = {"Nov17": 400, "Nov18": 2500, "Nov19": 22000, "Current": 35}.get(dk, 400)
+
+    EDGE_FLOWS = {
+        ("Pincha", "Rayavaram"): p_in,
+        ("Bahuda", "Rayavaram"): bah_flow,
+        ("Rayavaram", "Cheyyeru"): combined,
+        ("Seshachalam", "Cheyyeru"): _ses_flow,
+        ("Cheyyeru", "Annamayya"): a_in if a_in > 0 else combined,
+        ("Annamayya", "Villages"): a_out if a_out > 0 else p_in,
+        ("Villages", "Attirala"): max(a_out, p_out, 1),
+        ("Attirala", "Nandalur"): max(a_out, p_out, 1),
+        ("Nandalur", "Penna"): 512303 if dk == "Nov19" else max(p_out, 100),
+        ("Penna", "Somasila"): 512303 if dk == "Nov19" else max(p_out, 100),
+    }
+
+    def e_color(u, v):
+        if dk == "Nov17":
+            if (u, v) == ("Pincha", "Rayavaram"):
+                return C_AMBER
+            return "#38BDF8"
+        if dk == "Nov18":
+            if (u, v) in {("Nandalur", "Penna"), ("Penna", "Somasila")}:
+                return C_BLUE
+            if (u, v) in {("Seshachalam", "Cheyyeru")}:
+                return C_RED
+            if (u, v) in {("Pincha", "Rayavaram"), ("Bahuda", "Rayavaram")}:
+                return C_ORANGE
+            if (u, v) in {("Annamayya", "Villages"), ("Cheyyeru", "Annamayya")}:
+                return C_RED
+            return C_ORANGE
+        if dk == "Nov19":
+            if (u, v) in {("Penna", "Somasila"), ("Nandalur", "Penna")}:
+                return C_ORANGE
+            return C_DRED if (u, v) != ("Seshachalam", "Cheyyeru") else C_RED
+        return "#38BDF8"
+
+    def e_width(u, v):
+        flow = EDGE_FLOWS.get((u, v), 0)
+        if flow > 100000:
+            return 8
+        if flow > 30000:
+            return 6
+        if flow > 10000:
+            return 5
+        if flow > 3000:
+            return 4
+        if flow > 800:
+            return 3
+        if flow > 100:
+            return 2
+        return 1.5
+
+    def edge_text_label(u, v):
+        if dk == "Nov18":
+            if (u, v) == ("Pincha", "Rayavaram"):
+                return f"<b>{p_in:,.0f} cs ↑16.6%</b>"
+            if (u, v) == ("Rayavaram", "Cheyyeru"):
+                return "<b>combined surge</b>"
+            if (u, v) == ("Annamayya", "Villages"):
+                return "<b>11,531 cs — CRITICAL</b>"
+            if (u, v) == ("Seshachalam", "Cheyyeru"):
+                return "<b>Flash flood runoff</b>"
+        if dk == "Nov17" and (u, v) == ("Pincha", "Rayavaram"):
+            return f"<b>{p_in:,.0f} cs</b>"
+        if (u, v) == ("Seshachalam", "Cheyyeru"):
+            return "<b>Flash flood runoff</b>"
+        if dk == "Nov19" and (u, v) == ("Nandalur", "Penna"):
+            return "<b>512,303 cs</b>"
+        return ""
+
+    pin_bot = port("Pincha", "bottom")
+    bah_bot = port("Bahuda", "bottom")
+    ray_lft = port("Rayavaram", "left")
+    ray_rgt = port("Rayavaram", "right")
+    ray_bot = port("Rayavaram", "bottom")
+    ses_lft = port("Seshachalam", "left")
+    che_top = port("Cheyyeru", "top")
+    che_rgt = port("Cheyyeru", "right")
+    che_bot = port("Cheyyeru", "bottom")
+    ann_top = port("Annamayya", "top")
+    ann_bot = port("Annamayya", "bottom")
+    vil_top = port("Villages", "top")
+    vil_bot = port("Villages", "bottom")
+    att_top = port("Attirala", "top")
+    att_bot = port("Attirala", "bottom")
+    nan_top = port("Nandalur", "top")
+    nan_bot = port("Nandalur", "bottom")
+    pen_top = port("Penna", "top")
+    pen_bot = port("Penna", "bottom")
+    som_top = port("Somasila", "top")
+
+    EDGE_WP = {
+        ("Pincha", "Rayavaram"): [pin_bot, (pin_bot[0], ray_lft[1]), ray_lft],
+        ("Bahuda", "Rayavaram"): [bah_bot, (bah_bot[0], ray_rgt[1]), ray_rgt],
+        ("Rayavaram", "Cheyyeru"): [ray_bot, che_top],
+        ("Seshachalam", "Cheyyeru"): [
+            ses_lft, (che_rgt[0], ses_lft[1]), (che_rgt[0], che_top[1]), che_rgt,
+        ],
+        ("Cheyyeru", "Annamayya"): [che_bot, ann_top],
+        ("Annamayya", "Villages"): [ann_bot, vil_top],
+        ("Villages", "Attirala"): [vil_bot, att_top],
+        ("Attirala", "Nandalur"): [att_bot, nan_top],
+        ("Nandalur", "Penna"): [nan_bot, pen_top],
+        ("Penna", "Somasila"): [pen_bot, som_top],
+    }
 
     fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=edge_x, y=edge_y, line=dict(width=2, color='#475569'), hoverinfo='none', mode='lines'
-    ))
-    fig.add_trace(go.Scatter(
-        x=node_x, y=node_y, mode='markers',
-        hoverinfo='text', hovertext=node_text,
-        marker=dict(size=node_sizes, color=node_colors, line=dict(width=2, color='white'))
-    ))
-    fig.add_trace(go.Scatter(
-        x=node_x, y=[y - 0.25 if 'Annamayya' not in n else y - 0.4 for y, n in zip(node_y, node_text)], mode='text',
-        text=[f"<b>{n.replace('\n', '<br>')}</b>" for n in pos.keys()],
-        textfont=dict(color='white', size=14)
-    ))
-    
-    # Add arrows
-    for u, v in edges:
-        x0, y0 = pos[u]
-        x1, y1 = pos[v]
+
+    dashed_edges = {("Seshachalam", "Cheyyeru")}
+
+    for (u, v), wps in EDGE_WP.items():
+        col = e_color(u, v)
+        wid = e_width(u, v)
+        dash = "dash" if (u, v) in dashed_edges else "solid"
+        xs = [pt[0] for pt in wps] + [None]
+        ys = [pt[1] for pt in wps] + [None]
+        fig.add_trace(go.Scatter(
+            x=xs, y=ys, mode="lines",
+            line=dict(color=col, width=wid, dash=dash),
+            hoverinfo="none", showlegend=False,
+        ))
         fig.add_annotation(
-            x=x1, y=y1,
-            ax=x0, ay=y0,
-            xref="x", yref="y",
-            axref="x", ayref="y",
-            showarrow=True,
-            arrowhead=3,
-            arrowsize=1.5,
-            arrowwidth=2,
-            arrowcolor="#94A3B8",
-            opacity=0.6,
-            standoff=15
+            x=wps[-1][0], y=wps[-1][1], ax=wps[-2][0], ay=wps[-2][1],
+            xref="x", yref="y", axref="x", ayref="y",
+            showarrow=True, arrowhead=2, arrowsize=1.2,
+            arrowwidth=max(wid, 2), arrowcolor=col, standoff=4,
+        )
+        lbl_html = edge_text_label(u, v)
+        if lbl_html:
+            segs = [
+                abs(wps[i + 1][0] - wps[i][0]) + abs(wps[i + 1][1] - wps[i][1])
+                for i in range(len(wps) - 1)
+            ]
+            i_lg = int(segs.index(max(segs)))
+            mx = (wps[i_lg][0] + wps[i_lg + 1][0]) / 2
+            my = (wps[i_lg][1] + wps[i_lg + 1][1]) / 2 + 0.18
+            fig.add_annotation(
+                x=mx, y=my, text=lbl_html, showarrow=False,
+                font=dict(size=9, color="#FFFFFF", family="Arial Black"),
+                bgcolor="rgba(10,22,40,0.92)", bordercolor=col, borderwidth=1, borderpad=3,
+            )
+
+    ann_pulse = dk in ("Nov18", "Nov19")
+    for key, (cx, cy, hw, hh) in G.items():
+        brd = n_border(key)
+        bw = 3 if key == "Annamayya" else 2
+
+        if key == "Annamayya":
+            if ann_pulse:
+                fig.add_shape(
+                    type="rect",
+                    x0=cx - hw - 0.28, y0=cy - hh - 0.28,
+                    x1=cx + hw + 0.28, y1=cy + hh + 0.28,
+                    line=dict(color="#FCA5A5", width=2, dash="solid"),
+                    fillcolor="rgba(220,38,38,0.12)", layer="above",
+                )
+            fig.add_shape(
+                type="rect",
+                x0=cx - hw - 0.14, y0=cy - hh - 0.14,
+                x1=cx + hw + 0.14, y1=cy + hh + 0.14,
+                line=dict(color=brd, width=2, dash="dash"),
+                fillcolor="rgba(0,0,0,0)", layer="above",
+            )
+            fig.add_shape(
+                type="rect",
+                x0=cx - hw - 0.06, y0=cy - hh - 0.06,
+                x1=cx + hw + 0.06, y1=cy + hh + 0.06,
+                line=dict(color=brd, width=1, dash="dot"),
+                fillcolor="rgba(0,0,0,0)", layer="above",
+            )
+
+        fig.add_shape(
+            type="rect",
+            x0=cx - hw, y0=cy - hh, x1=cx + hw, y1=cy + hh,
+            line=dict(color=brd, width=bw),
+            fillcolor=n_fill(key), layer="above",
+        )
+
+        fs = 8.5 if key not in ("Annamayya", "Villages") else 9.0
+        if key == "Annamayya":
+            fs = 9.5
+        fig.add_annotation(
+            x=cx, y=cy, text=n_label(key), showarrow=False, align="center",
+            font=dict(size=fs, color="#FFFFFF", family="Arial Black"),
+            bgcolor="rgba(0,0,0,0)",
+        )
+
+    if ann_pulse:
+        fig.add_annotation(
+            x=7.0, y=5.15 + 1.15, xref="x", yref="y",
+            text="<b>● CRITICAL PULSE ●</b>", showarrow=False,
+            font=dict(size=11, color="#FECACA", family="Arial Black"),
         )
 
     fig.update_layout(
-        plot_bgcolor='rgb(15, 23, 42)', paper_bgcolor='rgb(15, 23, 42)',
-        font=dict(color='white'),
+        plot_bgcolor=BG, paper_bgcolor=BG,
+        font=dict(color="#FFFFFF"),
         showlegend=False,
-        height=600,
-        margin=dict(l=20, r=20, t=20, b=20),
-        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False, range=[2, 8]),
-        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False, range=[-0.5, 6])
+        height=700,
+        margin=dict(l=8, r=8, t=68, b=8),
+        xaxis=dict(
+            showgrid=False, zeroline=False, showticklabels=False,
+            range=[0.0, 13.8],
+        ),
+        yaxis=dict(
+            showgrid=False, zeroline=False, showticklabels=False,
+            range=[-3.65, 11.55],
+        ),
+        title=dict(
+            text=(
+                f"<b>Cheyyeru cascade network</b> — Pennar basin  |  "
+                f"{DATE_LABELS.get(dk, 'Current')}  |  Risk <b>{score:.0f}/100</b> [{level}]"
+                f"<br><sup>Topology: Pincha + Bahuda → Rayavaram (Cheyyeru) → Annamayya → Penna; "
+                f"Nov 17–19 cusecs from APWRIMS Reservoir Summary CSVs</sup>"
+            ),
+            font=dict(size=13, color="#93C5FD", family="Arial"),
+            x=0.5,
+        ),
     )
+
     st.plotly_chart(fig, use_container_width=True, key="cascade_network_graph")
 
     st.markdown("<br>", unsafe_allow_html=True)
