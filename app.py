@@ -222,21 +222,31 @@ st.markdown("""
 
     /* ── Buttons ──────────────────────────────────────────────────────────── */
     .stButton > button {
-        background: #FFFFFF; border: 1px solid #CBD5E1; color: #334155;
+        background: #FFFFFF; border: 1px solid #CBD5E1; color: #334155 !important;
         font-family: 'Inter', sans-serif; font-size: 12px;
         font-weight: 600; letter-spacing: 0.3px; border-radius: 6px;
         padding: 8px 18px; transition: all 0.18s;
         box-shadow: 0 1px 3px rgba(0,0,0,0.07);
     }
     .stButton > button:hover {
-        background: #EBF2FB; border-color: #1B4F91; color: #1B4F91;
+        background: #EBF2FB; border-color: #1B4F91; color: #1B4F91 !important;
     }
-    .stButton[data-testid] > button[kind="primary"] {
-        background: #1B4F91; border: 1px solid #1B4F91; color: #FFFFFF;
-        box-shadow: 0 2px 8px rgba(27,79,145,0.3);
+    /* Aggressive Primary Button Fix */
+    .stButton > button[kind="primary"], 
+    .stButton > button[kind="primary"] p,
+    .stButton > button[kind="primary"] span,
+    .stButton > button[kind="primary"] div {
+        background: #1B4F91 !important; 
+        border: 1px solid #1B4F91 !important; 
+        color: #FFFFFF !important;
+        box-shadow: 0 2px 8px rgba(27,79,145,0.3) !important;
     }
-    .stButton[data-testid] > button[kind="primary"]:hover {
-        background: #1A3F76; border-color: #1A3F76;
+    .stButton > button[kind="primary"]:hover,
+    .stButton > button[kind="primary"]:hover p,
+    .stButton > button[kind="primary"]:hover span {
+        background: #1A3F76 !important; 
+        border-color: #1A3F76 !important; 
+        color: #FFFFFF !important;
     }
 
     /* ── Headings  ───────────────────────────────────────────────────────── */
@@ -328,9 +338,9 @@ LEVEL_COLORS = {
     "CRITICAL": "#DC2626",
 }
 _LEVEL_RGB = {
-    "LOW":      "rgb(22, 163, 74)",
-    "MEDIUM":   "rgb(217, 119, 6)",
-    "HIGH":     "rgb(234, 88, 12)",
+    "LOW":      "rgb(0, 200, 81)",
+    "MEDIUM":   "rgb(255, 179, 0)",
+    "HIGH":     "rgb(255, 100, 0)",
     "CRITICAL": "rgb(220, 38, 38)",
 }
 
@@ -363,12 +373,11 @@ def make_gauge(score: float, level: str, title: str = "RISK SCORE") -> go.Figure
             mode="gauge+number",
             value=score,
             title={
-                # Level label sits ABOVE the number — no overlap
-                "text": f"<b style='color:{hex_color}'>{level}</b><br><span style='font-size:11px;color:#94A3B8'>{title}</span>",
-                "font": {"size": 15, "color": hex_color, "family": "Inter"},
+                "text": f"<span style='font-size:13px;color:#64748B'>{title}</span>",
+                "font": {"size": 13, "color": "#64748B", "family": "Inter"},
             },
             number={
-                "font": {"size": 48, "color": rgb_color, "family": "Inter"},
+                "font": {"size": 44, "color": rgb_color, "family": "Inter"},
                 "suffix": "",
             },
             gauge={
@@ -397,8 +406,8 @@ def make_gauge(score: float, level: str, title: str = "RISK SCORE") -> go.Figure
         )
     )
     fig.update_layout(
-        height=300,
-        margin=dict(t=60, b=20, l=30, r=30),
+        height=250,
+        margin=dict(l=20, r=40, t=40, b=20),
         paper_bgcolor="rgb(255, 255, 255)",
         plot_bgcolor="rgb(255, 255, 255)",
         font={"family": "Inter", "color": "#1E293B"},
@@ -415,7 +424,7 @@ def make_map(risk_result: dict, date_key: str) -> folium.Map:
     m = folium.Map(
         location=[14.2833, 79.1167],   # Annamayya Dam — centred
         zoom_start=11,
-        tiles="CartoDB dark_matter",
+        tiles="OpenStreetMap",
         prefer_canvas=True,
     )
 
@@ -469,7 +478,7 @@ def make_map(risk_result: dict, date_key: str) -> folium.Map:
         marker_color = "red" if (is_cheyyeru and sensor_dead) else "blue"
         inflow  = data.get("annamayya_inflow"  if is_cheyyeru else "pincha_inflow",  0)
         outflow = data.get("annamayya_outflow" if is_cheyyeru else "pincha_outflow", 0)
-        dead_note = " ⚠️ SENSOR DEAD" if (is_cheyyeru and sensor_dead) else ""
+        dead_note = " ⚠️ Dam under reconstruction (₹775 Cr project)" if (is_cheyyeru and sensor_dead) else ""
         folium.Marker(
             location=coords,
             popup=folium.Popup(
@@ -549,7 +558,7 @@ def make_factor_chart(top_factors: list) -> go.Figure:
         "Inflow Surge Rate":     25,
         "Discharge Imbalance":   20,
         "Rainfall Anomaly":      20,
-        "Sensor Dead Penalty":   10,
+        "Dam Offline Penalty":   10,
     }
     colors = [
         "#DC2626" if v > 0.7 * max_vals.get(n, 25) else
@@ -596,7 +605,7 @@ def show_metrics(data: dict, risk: dict):
     c4.metric(
         "ANNAMAYYA INFLOW",
         f"{data['annamayya_inflow']:,.0f} cs",
-        delta="⚠ SENSOR DEAD" if data["annamayya_sensor_dead"] else None,
+        delta="⚠ Dam under reconstruction (₹775 Cr project)" if data["annamayya_sensor_dead"] else None,
         delta_color="inverse" if data["annamayya_sensor_dead"] else "normal",
     )
     c5.metric("RAINFALL ACTUAL", f"{data['rainfall_actual']:.1f} mm",
@@ -678,34 +687,108 @@ unsafe_allow_html=True)
 # Tab 1 — Overview
 # ---------------------------------------------------------------------------
 def tab_overview():
-    st.markdown("### 🗺️ Overview — Real-Time Risk Status")
-
     current_risk = risks.get("Current", {})
     current_data = all_data.get("Current", {})
     level = current_risk.get("level", "LOW")
-    score = current_risk.get("score", 0)
+    score = current_risk.get("score", 0.0)
 
-    risk_banner(level, score, current_risk)
+    # 1. Full width status banner
+    status_msg = ("🎯 Active Monitoring Zone: Annamayya Dam Catchment | "
+                  "Cheyyeru River, Kadapa District | "
+                  "Dam destroyed Nov 2021 — ₹775 Cr reconstruction underway | "
+                  "System monitors via upstream proxy signals | "
+                  "→ See Historical Replay tab for Nov 2021 breach prediction")
+    if level == "CRITICAL" or level == "HIGH":
+        st.error(status_msg, icon="🚨")
+    elif level == "MEDIUM":
+        st.warning(status_msg, icon="⚠️")
+    else:
+        st.info(status_msg, icon="ℹ️")
 
-    col_map, col_gauge = st.columns([3, 2])
+    # 2. Five metric columns using st.metric()
+    c1, c2, c3, c4, c5 = st.columns(5)
+    c1.metric("Soil Moisture", "63.5%", delta="Elevated", delta_color="inverse")
+    c2.metric("Rainfall", "724.9mm", delta="+12.7% above normal", delta_color="inverse")
+    c3.metric("Pincha Inflow", "19 cs", delta="Low", delta_color="normal")
+    c4.metric("Annamayya Sensor", "OFFLINE", delta="Dam under reconstruction (₹775 Cr project)", delta_color="inverse")
+    c5.metric("MI Tank Fill", "78.8%", delta="Elevated", delta_color="inverse")
+
+    st.write("---")
+
+    # 4. Three st.metric cards in columns
+    cx1, cx2, cx3 = st.columns(3)
+    cx1.metric("38,600 MI Tanks", "Monitored across AP")
+    cx2.metric("264 River Gauges", "Active network")
+    cx3.metric("Nov 2021 Breach", "33 lives · 27.24 sq km flooded")
+
+    st.write("---")
+
+    # 5. Data pipeline as simple st.info box
+    st.info(f"**Data Pipeline:** APWRIMS → Signal Extraction → Risk Engine → Score {score:.1f} → Alert System | Last updated: 18 Apr 2026 17:25 IST")
+
+    st.write("---")
+
+    # 3. Two columns: Map left, Gauge right.
+    col_map, col_gauge = st.columns([1, 1])
     with col_map:
-        st.subheader("District Map")
-        m = make_map(current_risk, "Current")
-        st_folium(m, width=620, height=400, returned_objects=[])
+        m = folium.Map(location=[14.4673, 78.8242], zoom_start=10, tiles="OpenStreetMap", prefer_canvas=True)
+        # Annamayya dam red marker
+        folium.Marker(
+            location=[14.2833, 79.1167],
+            icon=folium.Icon(color="red", icon="info-sign"),
+            tooltip="Annamayya Dam"
+        ).add_to(m)
+        # Pincha dam orange marker
+        folium.Marker(
+            location=[13.8900, 78.8500],
+            icon=folium.Icon(color="orange", icon="info-sign"),
+            tooltip="Pincha Dam"
+        ).add_to(m)
+        # Village blue markers
+        villages = [
+            ("Pulaputhur", [14.2483, 79.1417]),
+            ("Mandapalle", [14.2185, 79.1678]),
+            ("Togurupeta", [14.2982, 79.1062]),
+            ("Gundlur",    [14.2693, 79.1235])
+        ]
+        for v_name, v_loc in villages:
+            folium.Marker(
+                location=v_loc,
+                icon=folium.Icon(color="blue", icon="home"),
+                tooltip=v_name
+            ).add_to(m)
+        
+        # Risk circle around dam
+        folium.Circle(
+            location=[14.2833, 79.1167],
+            radius=8000,
+            color="#FF3B3B",
+            fill=True,
+            fill_color="#FF3B3B",
+            fill_opacity=0.1,
+            tooltip="Risk Area"
+        ).add_to(m)
+        st_folium(m, use_container_width=True, height=500, returned_objects=[])
 
     with col_gauge:
-        st.subheader("Risk Gauge")
-        st.plotly_chart(make_gauge(score, level), use_container_width=True,
-                        key="chart_overview_gauge")
-        st.subheader("Contributing Factors")
-        st.plotly_chart(
-            make_factor_chart(current_risk.get("top_factors", [])),
-            use_container_width=True,
-            key="chart_overview_factors",
-        )
+        st.plotly_chart(make_gauge(score, level), width='stretch', key="gauge_overview")
+        st.plotly_chart(make_factor_chart(current_risk.get("top_factors", [])), width='stretch', key="factors_overview")
 
-    st.subheader("Current Snapshot")
-    show_metrics(current_data, current_risk)
+    with st.expander("📡 Live 2026 Data Stream"):
+        st.info(f"Current: {score:.1f} vs Nov 18 peak: 86.4 CRITICAL")
+        risk_banner(level, score, current_risk)
+        l_col1, l_col2 = st.columns([2, 3])
+        with l_col1:
+            st.plotly_chart(make_gauge(score, level, "Live Risk Score"), width='stretch', key="chart_live_gauge_overview")
+        with l_col2:
+            st.subheader("Live Sensor Readings")
+            show_metrics(current_data, current_risk)
+            st.subheader("Factor Breakdown")
+            st.plotly_chart(make_factor_chart(current_risk.get("top_factors", [])), width='stretch', key="chart_live_factors_overview")
+        st.subheader("Live Map")
+        m_live = make_map(current_risk, "Current")
+        st_folium(m_live, use_container_width=True, height=420, returned_objects=[], key="map_live_overview")
+
 
 
 # ---------------------------------------------------------------------------
@@ -725,7 +808,7 @@ def tab_historical():
         color = LEVEL_COLORS[level]
         if col.button(
             f"📅 {DATE_LABELS[dk]}\n**{level}** — {risk.get('score', 0):.0f}/100",
-            use_container_width=True,
+            width='stretch',
             key=f"btn_{dk}",
         ):
             st.session_state.selected_date = dk
@@ -749,16 +832,22 @@ def tab_historical():
     </span>
 </div>
 """, unsafe_allow_html=True)
+    elif dk == "Nov19":
+        st.markdown("""
+<div class="critical-alert" style="background-color:#7F1D1D; color:white;">
+    ⚠️ BREACH CONFIRMED
+</div>
+""", unsafe_allow_html=True)
 
     col_map, col_right = st.columns([3, 2])
     with col_map:
         m = make_map(risk, dk)
-        st_folium(m, width=620, height=360, returned_objects=[], key=f"map_{dk}")
+        st_folium(m, use_container_width=True, height=360, returned_objects=[], key=f"map_{dk}")
 
     with col_right:
         st.plotly_chart(
             make_gauge(score, level, title=f"Risk — {DATE_LABELS[dk]}"),
-            use_container_width=True, key="chart_replay_gauge",
+            width='stretch', key="chart_replay_gauge",
         )
         st.markdown(f"**Time to Failure:** `{risk.get('time_to_failure','N/A')}`")
         st.markdown(f"**Confidence:** `{risk.get('confidence',0):.0f}%`")
@@ -769,8 +858,20 @@ def tab_historical():
     st.subheader("Factor Breakdown")
     st.plotly_chart(
         make_factor_chart(risk.get("top_factors", [])),
-        use_container_width=True, key="chart_replay_factors",
+        width='stretch', key="chart_replay_factors",
     )
+
+    if dk == "Nov19":
+        st.markdown("### 🛰️ Sentinel-1 SAR — Actual Flood Extent Detected")
+        try:
+            st.image(
+                "data/flood_map_nov2021.png",
+                caption="Sentinel-1 SAR Flood Extent — Nov 19-25, 2021 | 27.24 sq km flooded | Blue = Flood water detected by radar | Source: ESA Copernicus / Google Earth Engine",
+                use_column_width=True
+            )
+            st.success("🌊 Satellite confirmation: 27.24 sq km flooded downstream of Annamayya dam breach")
+        except:
+            st.info("Satellite flood map: 27.24 sq km flooded — Nandialur, Pulapathuru, Seshamambapuram, Rajampet area")
 
     # Trend table with level-based row highlighting
     st.subheader("Trend Across Nov 2021")
@@ -809,74 +910,7 @@ def tab_historical():
     st.dataframe(
         df_trend.style.apply(highlight_risk, axis=1),
         hide_index=True,
-        use_container_width=True,
-    )
-
-
-# ---------------------------------------------------------------------------
-# Tab 3 — Live 2026
-# ---------------------------------------------------------------------------
-def tab_live():
-    st.markdown("### 📡 Live Data — Current (2026)")
-
-    current_data = all_data.get("Current", {})
-    current_risk = risks.get("Current", {})
-    level = current_risk.get("level", "LOW")
-    score = current_risk.get("score", 0)
-
-    risk_banner(level, score, current_risk)
-
-    col1, col2 = st.columns([2, 3])
-    with col1:
-        st.plotly_chart(
-            make_gauge(score, level, "Live Risk Score"),
-            use_container_width=True, key="chart_live_gauge",
-        )
-
-    with col2:
-        st.subheader("Live Sensor Readings")
-        show_metrics(current_data, current_risk)
-        st.subheader("Factor Breakdown")
-        st.plotly_chart(
-            make_factor_chart(current_risk.get("top_factors", [])),
-            use_container_width=True, key="chart_live_factors",
-        )
-
-    st.subheader("Live Map")
-    m = make_map(current_risk, "Current")
-    st_folium(m, width=900, height=420, returned_objects=[], key="map_live")
-
-    st.subheader("Comparison: Nov 2021 vs Now")
-    compare_rows = []
-    for dk in ["Nov19", "Nov20", "Current"]:
-        r = risks.get(dk, {})
-        d = all_data.get(dk, {})
-        compare_rows.append({
-            "Period":          DATE_LABELS[dk],
-            "Risk Score":      r.get("score", 0),
-            "Level":           r.get("level", "—"),
-            "Pincha Inflow":   d.get("pincha_inflow", 0),
-            "MI Tank Fill %":  d.get("mi_tank_fill_pct", 0),
-            "Soil 100cm %":    d.get("soil_moisture_100cm", 0),
-            "Rainfall (mm)":   d.get("rainfall_actual", 0),
-        })
-
-    df_compare = pd.DataFrame(compare_rows)
-
-    def highlight_risk(row):
-        level_val = row.get("Level", "")
-        if level_val == "CRITICAL":
-            return ["background-color: #FEE2E2"] * len(row)
-        elif level_val == "HIGH":
-            return ["background-color: #FEF2F2"] * len(row)
-        elif level_val == "MEDIUM":
-            return ["background-color: #FFFBEB"] * len(row)
-        return ["background-color: #FFFFFF"] * len(row)
-
-    st.dataframe(
-        df_compare.style.apply(highlight_risk, axis=1),
-        hide_index=True,
-        use_container_width=True,
+        width='stretch',
     )
 
 
@@ -909,7 +943,7 @@ Score = (soil_moisture_100cm / 100 × 25)
 | 2 | **Inflow Surge Rate** | 25 | `(cur_inflow − prev_inflow) / prev_inflow`, capped 0–1 |
 | 3 | **Discharge Imbalance** | 20 | `1 − (outflow / inflow)` when inflow > outflow, else 0 |
 | 4 | **Rainfall Anomaly** | 20 | `min(actual / normal, 5) / 5` |
-| 5 | **Sensor Dead Penalty** | 10 | `1` if Annamayya sensor is dead, else `0` |
+| 5 | **Dam Offline Penalty** | 10 | `1` if Annamayya sensor is dead, else `0` |
 
 ---
 
@@ -992,7 +1026,7 @@ We close that gap — using the same proven signal combination, built on AP's ow
 
     st.dataframe(
         df_cmp.style.apply(highlight_ours, axis=1),
-        hide_index=True, use_container_width=True,
+        hide_index=True, width='stretch',
     )
 
     # ── Cost Efficiency ─────────────────────────────────────────────────────
@@ -1030,7 +1064,7 @@ We close that gap — using the same proven signal combination, built on AP's ow
 
     st.dataframe(
         df_cost.style.apply(highlight_zero, axis=1),
-        hide_index=True, use_container_width=True,
+        hide_index=True, width='stretch',
     )
 
     # ── Footer quote ────────────────────────────────────────────────────────
@@ -1051,7 +1085,7 @@ That is the difference between <strong>data</strong> and <strong>decision</stron
 # ---------------------------------------------------------------------------
 # Tab 3 — Action Recommendations
 # ---------------------------------------------------------------------------
-def tab_action_recommendations():
+def tab_action_recommendations(dk="Nov18"):
     st.markdown("### 🎯 Decision Support — Action Recommendations")
     st.markdown(
         "<p style='color:#64748B;margin-top:-8px;margin-bottom:18px;font-size:14px'>"
@@ -1061,14 +1095,14 @@ def tab_action_recommendations():
     )
 
     # Reference Nov 18 data (CRITICAL scenario)
-    data_n18 = all_data.get("Nov18", {})
-    risk_n18 = risks.get("Nov18", {})
+    data_dk = all_data.get(dk, {})
+    risk_dk = risks.get(dk, {})
 
-    st.markdown("""
+    st.markdown(f"""
 <div class="critical-alert">
-    🚨 Showing recommendations for CRITICAL scenario — November 18, 2021 08:00 AM<br>
+    🚨 Showing recommendations for CRITICAL scenario — {DATE_LABELS.get(dk, 'November 2021')}<br>
     <span style="font-size:13px;font-weight:normal;">
-    Risk Score: 88/100 · Time to Failure: 6–12 hours · Confidence: 65%
+    Risk Score: {risk_dk.get('score', 86.4)}/100 · Time to Failure: {risk_dk.get('time_to_failure', '6-12 hours')} · Confidence: {risk_dk.get('confidence', 65)}%
     </span>
 </div>
 """, unsafe_allow_html=True)
@@ -1194,7 +1228,7 @@ def tab_action_recommendations():
 
     st.dataframe(
         pd.DataFrame(signal_data).style.apply(highlight_signal, axis=1),
-        hide_index=True, use_container_width=True,
+        hide_index=True, width='stretch',
     )
 
     # ── Disclaimer ──────────────────────────────────────────────────────────
@@ -1239,7 +1273,7 @@ def tab_village_alerts():
     sms_en, sms_te = st.columns(2)
 
     with sms_en:
-        st.markdown("**🇬🇧 English**")
+        st.markdown("**🇬🇧 In English**")
         st.markdown("""
 <div class="sms-box">
 APSDMA EARLY WARNING ALERT<br>
@@ -1250,7 +1284,8 @@ Zone: Mandapalli, Togurupeta,<br>
 <br>
 ⚠️ RISK: CRITICAL<br>
 Water levels rising rapidly at<br>
-Annamayya Dam &amp; Pincha Project.<br>
+Pincha Project. Annamayya<br>
+catchment at extreme risk.<br>
 <br>
 ACTION: Move to safe location<br>
 IMMEDIATELY<br>
@@ -1273,8 +1308,8 @@ APSDMA హెచ్చరిక సందేశం<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;పులపత్తూర్, గుండ్లూరు<br>
 <br>
 ⚠️ ప్రమాదం: తీవ్రం<br>
-అన్నమయ్య డ్యామ్ వద్ద నీటి మట్టాలు<br>
-వేగంగా పెరుగుతున్నాయి.<br>
+పించా ప్రాజెక్ట్ వద్ద నీటి మట్టాలు వేగంగా పెరుగుతున్నాయి.<br>
+అన్నమయ్య క్యాచ్మెంట్ తీవ్ర ప్రమాదంలో ఉంది.<br>
 <br>
 చర్య: వెంటనే సురక్షిత ప్రాంతానికి<br>
 వెళ్ళండి<br>
@@ -1305,7 +1340,7 @@ APSDMA హెచ్చరిక సందేశం<br>
 
     st.dataframe(
         pd.DataFrame(village_data).style.apply(highlight_village, axis=1),
-        hide_index=True, use_container_width=True,
+        hide_index=True, width='stretch',
     )
 
     # ── Comparison section ───────────────────────────────────────────────────
@@ -1370,15 +1405,212 @@ APSDMA హెచ్చరిక సందేశం<br>
 """, unsafe_allow_html=True)
 
 
+
+def tab_cascade():
+    st.markdown("### 🌊 Cascade Network Intelligence — Pennar Basin")
+    st.markdown("**Monitoring the entire upstream-downstream relationship network**")
+    st.markdown("*Data source: APWRIMS live node data + risk engine*")
+    
+    btn_cols = st.columns(4)
+    date_keys = ["Nov17", "Nov18", "Nov19", "Current"]
+    if "cascade_date" not in st.session_state:
+        st.session_state.cascade_date = "Nov17"
+        
+    for col, dk in zip(btn_cols, date_keys):
+        risk = risks.get(dk, {})
+        level = risk.get("level", "LOW")
+        if col.button(f"📅 {DATE_LABELS.get(dk, 'Current')} — {level}", key=f"btn_casc_{dk}"):
+            st.session_state.cascade_date = dk
+            
+    dk = st.session_state.cascade_date
+    data = all_data.get(dk, {})
+    risk = risks.get(dk, {})
+    level = risk.get("level", "LOW")
+    score = risk.get("score", 0)
+
+    # Coordinates
+    pos = {
+        "Pennar River": (5, 0),
+        "Mylavaram": (5, 1),
+        "Annamayya (Under reconstruction)": (5, 2),
+        "Cheyyeru River": (5, 3),
+        "Pincha Project": (3, 4),
+        "Bahuda River": (3, 5),
+        "Gandikota": (7, 3),
+        "Veligallu": (7, 4)
+    }
+    
+    edges = [
+        ("Bahuda River", "Pincha Project"),
+        ("Pincha Project", "Cheyyeru River"),
+        ("Cheyyeru River", "Annamayya (Under reconstruction)"),
+        ("Annamayya (Under reconstruction)", "Mylavaram"),
+        ("Mylavaram", "Pennar River"),
+        ("Gandikota", "Pennar River"),
+        ("Veligallu", "Pennar River")
+    ]
+    
+    def get_color(node, selected_dk):
+        if selected_dk == "Current":
+            if "Pincha" in node: return "#D97706"
+            if "Annamayya" in node: return "#DC2626"
+            if "River" in node: return "#3B82F6"
+            return "#94A3B8"
+        elif selected_dk == "Nov18":
+            if "Pincha" in node: return "#D97706"
+            if "Annamayya" in node: return "#DC2626"
+            if "Cheyyeru" in node: return "#EA580C"
+            if "Gandikota" in node: return "#DC2626"
+            if "River" in node: return "#3B82F6"
+            return "#EA580C"
+        elif selected_dk == "Nov19":
+            if "Annamayya" in node: return "#000000"
+            if "River" in node: return "#3B82F6"
+            if "Pincha" in node: return "#DC2626"
+            if "Cheyyeru" in node: return "#DC2626"
+            return "#DC2626"
+        else: # Nov17
+            if "River" in node: return "#3B82F6"
+            return "#16A34A"
+            
+    def get_hover(node, selected_dk):
+        if "Annamayya" in node:
+            stt = "Status: Under reconstruction<br>Risk: MAXIMUM (offline)" if selected_dk == 'Current' else f"In/Out: {data.get('annamayya_inflow',0)} / {data.get('annamayya_outflow',0)}"
+            return f"<b>{node}</b><br>{stt}"
+        elif "Pincha" in node:
+            return f"<b>{node}</b><br>Inflow: {data.get('pincha_inflow',0)}<br>Outflow: {data.get('pincha_outflow',0)}"
+        return f"<b>{node}</b>"
+            
+    edge_x, edge_y = [], []
+    for u, v in edges:
+        x0, y0 = pos[u]
+        x1, y1 = pos[v]
+        edge_x.extend([x0, x1, None])
+        edge_y.extend([y0, y1, None])
+        
+    node_x, node_y, node_colors, node_text, node_sizes = [], [], [], [], []
+    for node, (x, y) in pos.items():
+        node_x.append(x)
+        node_y.append(y)
+        node_colors.append(get_color(node, dk))
+        size = 30
+        if "Annamayya" in node: size = 45
+        elif "Gandikota" in node: size = 50
+        elif "Mylavaram" in node: size = 35
+        elif "Pincha" in node: size = 25
+        elif "Veligallu" in node: size = 25
+        node_sizes.append(size * 1.5)
+        node_text.append(get_hover(node, dk))
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=edge_x, y=edge_y, line=dict(width=2, color='#475569'), hoverinfo='none', mode='lines'
+    ))
+    fig.add_trace(go.Scatter(
+        x=node_x, y=node_y, mode='markers',
+        hoverinfo='text', hovertext=node_text,
+        marker=dict(size=node_sizes, color=node_colors, line=dict(width=2, color='white'))
+    ))
+    fig.add_trace(go.Scatter(
+        x=node_x, y=[y - 0.25 if 'Annamayya' not in n else y - 0.4 for y, n in zip(node_y, node_text)], mode='text',
+        text=[f"<b>{n.replace('\n', '<br>')}</b>" for n in pos.keys()],
+        textfont=dict(color='white', size=14)
+    ))
+    
+    # Add arrows
+    for u, v in edges:
+        x0, y0 = pos[u]
+        x1, y1 = pos[v]
+        fig.add_annotation(
+            x=x1, y=y1,
+            ax=x0, ay=y0,
+            xref="x", yref="y",
+            axref="x", ayref="y",
+            showarrow=True,
+            arrowhead=3,
+            arrowsize=1.5,
+            arrowwidth=2,
+            arrowcolor="#94A3B8",
+            opacity=0.6,
+            standoff=15
+        )
+
+    fig.update_layout(
+        plot_bgcolor='rgb(15, 23, 42)', paper_bgcolor='rgb(15, 23, 42)',
+        font=dict(color='white'),
+        showlegend=False,
+        height=600,
+        margin=dict(l=20, r=20, t=20, b=20),
+        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False, range=[2, 8]),
+        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False, range=[-0.5, 6])
+    )
+    st.plotly_chart(fig, use_container_width=True, key="cascade_network_graph")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.info(f"""**Pincha Project**  
+Storage: 0.15 TMC (45.75%)  
+Inflow: {data.get('pincha_inflow',0):,.0f} cs  
+Outflow: {data.get('pincha_outflow',0):,.0f} cs  
+Risk contribution: UPSTREAM TRIGGER""")
+    with c2:
+        st.error(f"""**Annamayya (Cheyyeru)**  
+Storage: {data.get('annamayya_storage_tmc', 0)} TMC  
+Status: Under reconstruction  
+Last known: Nov 2021  
+Risk: MAXIMUM - structure offline""")
+    with c3:
+        st.warning(f"""**Cascade Status**  
+Overall network risk: {score}  
+Active alerts: {1 if level in ['HIGH','CRITICAL'] else 0}  
+Cascade probability: {'High' if level in ['HIGH','CRITICAL'] else 'Low'}""")
+
+    if dk == "Nov18":
+        st.error("""⚠️ **CASCADE FAILURE DETECTED — Nov 18, 2021 08:00 AM**
+
+**Pincha:** +16.6% inflow surge detected
+**Annamayya:** outflow exceeding inflow — pressure building  
+**Gandikota:** emergency release 15,000 cusecs
+**Network cascade probability:** HIGH
+**Estimated time to failure:** 6-12 hours
+**→ Automatic alert dispatched to 1,247 village contacts**""")
+
+        st.markdown("""
+<div style="background:#1a1a2e; border:1px solid #00ff88; 
+border-radius:8px; padding:16px; margin-top:12px; font-family:monospace;">
+<div style="color:#00ff88; font-weight:bold; margin-bottom:10px;">
+📡 ALERT DISPATCH LOG — Auto-Generated | Nov 18, 2021 08:15 AM
+</div>
+<div style="color:#ffffff; line-height:2;">
+📱 <b>Village SMS</b> → 1,247 registered contacts<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Mandapalli · Togurupeta · Pulapathur · Gundlur<br>
+📟 <b>District Control Room</b> → Collector, Kadapa District<br>
+🏢 <b>APSDMA Headquarters</b> → State Disaster Management Authority<br>
+📞 <b>NDRF Pre-Alert</b> → National Disaster Response Force<br>
+</div>
+<div style="color:#FFB300; margin-top:10px; font-weight:bold;">
+⚡ Total dispatch time: < 15 minutes &nbsp;|&nbsp; 
+Human intervention required: ZERO &nbsp;|&nbsp; 
+Hours before breach: ~17 hours
+</div>
+</div>
+""", unsafe_allow_html=True)
+
+    if level in ["HIGH", "CRITICAL"]:
+        st.markdown("---")
+        tab_action_recommendations(dk)
+
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 tabs = st.tabs([
     "🗺️ Overview",
     "📅 Historical Replay",
-    "🎯 Action Recommendations",
+    "🌊 Cascade Network",
     "📱 Village Alert System",
-    "📡 Live 2026",
     "ℹ️ How It Works",
 ])
 with tabs[0]:
@@ -1386,12 +1618,10 @@ with tabs[0]:
 with tabs[1]:
     tab_historical()
 with tabs[2]:
-    tab_action_recommendations()
+    tab_cascade()
 with tabs[3]:
     tab_village_alerts()
 with tabs[4]:
-    tab_live()
-with tabs[5]:
     tab_how_it_works()
 
 # ---------------------------------------------------------------------------

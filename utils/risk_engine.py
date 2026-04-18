@@ -28,115 +28,94 @@ def _clamp(value: float, lo: float = 0.0, hi: float = 1.0) -> float:
 def compute_risk(current: dict, previous: dict | None = None) -> dict:
     """
     Compute a hybrid risk score for a single date.
-
-    Parameters
-    ----------
-    current  : dict — data for the date being scored (from data_loader)
-    previous : dict | None — data for the prior date (used for surge rate).
-               If None, surge rate is 0.
-
-    Returns
-    -------
-    dict with keys:
-        score           float 0-100
-        level           str  LOW | MEDIUM | HIGH | CRITICAL
-        confidence      float 0-100
-        time_to_failure str
-        top_factors     list of (factor_name, points) tuples, sorted descending
     """
-    # --- Component 1: Soil moisture (0-25 pts) ----------------------------
-    soil_pct = _clamp(current["soil_moisture_100cm"] / 100.0)
-    soil_pts = soil_pct * 25.0
-
-    # --- Component 2: Inflow surge rate (0-25 pts) -------------------------
-    # Use Pincha inflow as the primary indicator; fall back to Annamayya.
-    cur_inflow = current["pincha_inflow"] or current["annamayya_inflow"]
-    if previous is not None:
-        prev_inflow = previous["pincha_inflow"] or previous["annamayya_inflow"]
+    # 1. Surge points
+    cur_inflow = current.get("pincha_inflow", 0) or current.get("annamayya_inflow", 0)
+    prev_inflow = previous.get("pincha_inflow", 0) or previous.get("annamayya_inflow", 0) if previous else 0
+    if prev_inflow > 0:
+        surge_rate = (cur_inflow - prev_inflow) / prev_inflow
+        surge_pts = min(surge_rate, 1.0) * 25.0 if surge_rate > 0 else 0.0
     else:
-        prev_inflow = None
+        surge_pts = 0.0
 
-    if prev_inflow and prev_inflow > 0:
-        surge = (cur_inflow - prev_inflow) / prev_inflow
-        surge = max(surge, 0.0)          # ignore receding flows
+    # 2. Imbalance points
+    outflow = current.get("annamayya_outflow", 0)
+    inflow = current.get("annamayya_inflow", 0)
+    if outflow > inflow and inflow > 0:
+        ratio = (outflow - inflow) / outflow
+        imbal_pts = min(ratio, 1.0) * 20.0
     else:
-        surge = 0.0
-    # Scale: 1 point per 1% surge, capped at 25 pts (25% surge = max score)
-    surge_pts = min(surge * 100.0, 25.0)
+        imbal_pts = 0.0
 
-    # --- Component 3: Discharge imbalance (0-20 pts) -----------------------
-    # Use Pincha reservoir (most critical chokepoint).
-    # When outflow > inflow the dam is releasing more than it receives —
-    # maximum downstream stress → score = 1.0.
-    p_inflow = current["pincha_inflow"]
-    p_outflow = current["pincha_outflow"]
-    denom = max(p_inflow, p_outflow)
-    if denom > 0:
-        imbalance = abs(p_outflow - p_inflow) / denom
-        if p_outflow > p_inflow:
-            imbalance = 1.0           # reverse pressure = maximum stress
+    # 3. Soil moisture
+    soil = current.get("soil_moisture_100cm", 0.0)
+    soil_pts = (soil / 100.0) * 25.0
+
+    # 4. Rainfall points
+    actual = current.get("rainfall_actual", 0.0)
+    normal = current.get("rainfall_normal", 0.0)
+    if normal > 0:
+        rain_pts = (min(actual / normal, 5.0) / 5.0) * 20.0
     else:
-        imbalance = 0.0
-    imbalance_pts = imbalance * 20.0
+        rain_pts = 0.0
 
-    # --- Component 4: Rainfall anomaly (0-20 pts) --------------------------
-    normal = current["rainfall_normal"]
-    actual = current["rainfall_actual"]
-    if normal and normal > 0:
-        rain_ratio = _clamp(min(actual / normal, 5.0) / 5.0)
-    else:
-        rain_ratio = 0.0
-    rain_pts = rain_ratio * 20.0
-
-    # --- Component 5: Sensor penalty (0-10 pts) ----------------------------
-    # Dead = 10 pts; suspicious (identical reading to prior day) = 5 pts.
-    sensor_dead = current["annamayya_sensor_dead"]
+    # 5. Dam offline / sensor penalty
+    sensor_dead = current.get("annamayya_sensor_dead", False)
     if sensor_dead:
         sensor_pts = 10.0
-    elif (
-        previous is not None
-        and current["annamayya_inflow"] > 0
-        and current["annamayya_inflow"] == previous["annamayya_inflow"]
-    ):
-        sensor_pts = 5.0   # frozen/suspicious reading
+    elif previous and inflow > 0 and inflow == previous.get("annamayya_inflow", -1):
+        sensor_pts = 5.0
     else:
         sensor_pts = 0.0
 
-    # --- Total score -------------------------------------------------------
-    score = soil_pts + surge_pts + imbalance_pts + rain_pts + sensor_pts
+    # 6. Cascade bonus
+    cascade_bonus = 20.0 if (surge_pts > 0 and imbal_pts > 0) else 0.0
+
+    # 7. Tank bonus
+    tank = current.get("mi_tank_fill_pct", 0)
+    if tank >= 80:
+        tank_bonus = 12.0
+    elif tank >= 70:
+        tank_bonus = 6.0
+    else:
+        tank_bonus = 0.0
+
+    # 8. Score calculation
+    score = soil_pts + surge_pts + imbal_pts + rain_pts + sensor_pts + cascade_bonus + tank_bonus
     score = _clamp(score, 0.0, 100.0)
 
-    # --- Risk level --------------------------------------------------------
+    # Risk level
     level = "LOW"
     for lvl, (lo, hi) in THRESHOLDS.items():
         if lo <= score < hi:
             level = lvl
             break
 
-    # --- Confidence --------------------------------------------------------
-    # Penalise confidence when sensor is dead or previous data is unavailable.
+    # Confidence
     confidence = 95.0
     if sensor_dead:
         confidence -= 20.0
     if previous is None:
         confidence -= 15.0
-    # Also reduce if inflow data is all zeros (sensor dropout)
-    if cur_inflow == 0 and p_inflow == 0 if previous else cur_inflow == 0:
+    if cur_inflow == 0:
         confidence -= 10.0
-    confidence = _clamp(confidence, 0.0, 100.0) * 100.0 / 100.0  # keep 0-100
-    confidence = round(max(0.0, min(100.0, confidence)), 1)
+    confidence = round(_clamp(confidence, 0.0, 100.0), 1)
 
-    # --- Time to failure estimate -----------------------------------------
-    time_to_failure = _estimate_tte(score, level, surge)
+    time_to_failure = _estimate_tte(score, level, surge_pts/25.0 if surge_pts else 0)
 
-    # --- Top factors (sorted by contribution) ------------------------------
+    # Top factors
     factors = [
         ("Soil Moisture (100cm)", round(soil_pts, 1)),
         ("Inflow Surge Rate", round(surge_pts, 1)),
-        ("Discharge Imbalance", round(imbalance_pts, 1)),
+        ("Discharge Imbalance", round(imbal_pts, 1)),
         ("Rainfall Anomaly", round(rain_pts, 1)),
-        ("Sensor Dead Penalty", round(sensor_pts, 1)),
+        ("Dam Offline Penalty", round(sensor_pts, 1))
     ]
+    if cascade_bonus > 0:
+        factors.append(("Cascade Risk Bonus", round(cascade_bonus, 1)))
+    if tank_bonus > 0:
+        factors.append(("MI Tank Saturation Bonus", round(tank_bonus, 1)))
+        
     top_factors = sorted(factors, key=lambda x: x[1], reverse=True)
 
     return {
@@ -145,14 +124,6 @@ def compute_risk(current: dict, previous: dict | None = None) -> dict:
         "confidence": confidence,
         "time_to_failure": time_to_failure,
         "top_factors": top_factors,
-        # Raw components (useful for display)
-        "_components": {
-            "soil_pts": round(soil_pts, 2),
-            "surge_pts": round(surge_pts, 2),
-            "imbalance_pts": round(imbalance_pts, 2),
-            "rain_pts": round(rain_pts, 2),
-            "sensor_pts": round(sensor_pts, 2),
-        },
     }
 
 
