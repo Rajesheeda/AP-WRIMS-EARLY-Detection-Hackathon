@@ -41,9 +41,15 @@ def compute_risk(current: dict, previous: dict | None = None) -> dict:
     # 2. Imbalance points
     outflow = current.get("annamayya_outflow", 0)
     inflow = current.get("annamayya_inflow", 0)
-    if outflow > inflow and inflow > 0:
+    if inflow > 1000 and (outflow is None or outflow < 10):
+        # Dam cannot release — extreme backing up
+        imbal_pts = 18.0
+    elif outflow > inflow and inflow > 0:
+        # outflow exceeding inflow = reverse pressure
         ratio = (outflow - inflow) / outflow
         imbal_pts = min(ratio, 1.0) * 20.0
+    elif inflow == 0 and outflow == 0:
+        imbal_pts = 0.0
     else:
         imbal_pts = 0.0
 

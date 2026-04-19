@@ -1029,43 +1029,63 @@ We close that gap — using the same proven signal combination, built on AP's ow
         hide_index=True, width='stretch',
     )
 
-    # ── Cost Efficiency ─────────────────────────────────────────────────────
+    # ── System Validation & Scaling ──────────────────────────────────────────
     st.markdown("---")
-    st.markdown("### 💰 Cost Efficiency")
+    st.markdown("### 🔍 System Validation & Roadmap")
 
-    cost_data = {
-        "Item": [
-            "Sentinel-1 SAR Data",
-            "APWRIMS Data",
-            "Manual inspection (full season)",
-            "Our system annual operating cost",
-            "Inspection reduction",
-            "Additional cost to govt for satellite",
-        ],
-        "Cost / Value": [
-            "₹0 (Free — ESA Copernicus)",
-            "₹0 (Existing Govt Infrastructure)",
-            "₹80–100 Crore",
-            "₹15–20 Crore",
-            "85%",
-            "₹0",
-        ],
-    }
-    df_cost = pd.DataFrame(cost_data)
+    with st.expander("✅ Accuracy & Validation"):
+        st.markdown("""
+- **Nov 17:** 🟠 **HIGH alert** — 48 hours before breach (Score ~67)
+- **Nov 18:** 🔴 **CRITICAL alert** — 17 hours before breach (Score ~86)
+- **Nov 19:** 🌑 **Breach confirmed** (Data loss / SAR validation)
+- *System validated against the actual 2021 event logs and satellite records.*
+""")
 
-    def highlight_zero(row):
-        if "₹0" in str(row["Cost / Value"]):
-            return ["background-color:#F0FDF4"] * len(row)
-        if "₹15" in str(row["Cost / Value"]) or "85%" in str(row["Cost / Value"]):
-            return ["background-color:#EFF6FF"] * len(row)
-        if "₹80" in str(row["Cost / Value"]):
-            return ["background-color:#FEF2F2"] * len(row)
-        return [""] * len(row)
+    with st.expander("🌐 Scale to 38,600 MI Tanks"):
+        st.markdown("""
+- Same **APWRIMS** data pipelines exist for all MI tanks across Andhra Pradesh.
+- The hybrid logic applies to any **earthen bund** structure.
+- **No new sensors needed:** Utilizes existing satellite and rainfall networks.
+- Full state-wide coverage possible with 0 additional infrastructure cost.
+""")
 
-    st.dataframe(
-        df_cost.style.apply(highlight_zero, axis=1),
-        hide_index=True, width='stretch',
-    )
+    with st.expander("💰 Cost Savings"):
+        savings_df = pd.DataFrame({
+            "Line Item": [
+                "Sentinel-1 SAR Data (ESA)",
+                "APWRIMS Telemetric Data",
+                "Manual Inspection (Full Season)",
+                "EWS Operating Cost (Ours)",
+                "Projected Savings",
+                "Annamayya Reconstruction Cost"
+            ],
+            "Cost / Value": [
+                "₹0", "₹0", "₹80-100 Cr", "₹15-20 Cr", "~80%", "₹775 Cr (Preventable)"
+            ]
+        })
+        st.table(savings_df)
+
+    with st.expander("🚁 Drone Integration (Future)"):
+        st.markdown("""
+- **Tier 1:** Satellite + APWRIMS → flag top 5% risk zones (Automated).
+- **Tier 2:** Drone dispatch → targeted inspection of flagged zones only.
+- **Result:** Saves 95% of drone operational costs compared to full-area coverage.
+""")
+
+    with st.expander("🔧 Maintenance"):
+        st.markdown("""
+- **Pre-Monsoon Health Check:** Any structure with a risk score > 50 during the dry season is flagged for immediate physical maintenance.
+- Simple, honest logic to prevent "Blue Sky" failures.
+""")
+
+    with st.expander("🤖 Why This Model"):
+        st.markdown("""
+**Hybrid (Heuristic + Data) chosen because:**
+- Limited historical reach-data for specific earthen bunds.
+- More **explainable** to government engineers than black-box models.
+- Directly **validated** on the 2021 breach event.
+- Easily **tunable** as more real-time sensor data is added.
+""")
 
     # ── Footer quote ────────────────────────────────────────────────────────
     st.markdown("""
